@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://educations.com/XmlImport"
+    elementFormDefault="qualified"
+    xmlns="http://educations.com/XmlImport"
+    xmlns:xi="http://educations.com/XmlImport"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:include schemaLocation="location.xsd" />
+  <xs:include schemaLocation="event-start-info.xsd" />
+
+  <xs:complexType name="Event" abstract="true">
+    <xs:all>
+      <xs:element name="pace" minOccurs="0" default="100.00">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0.0" />
+            <xs:maxInclusive value="100.0" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="price" type="Price" minOccurs="0" />
+      <xs:element name="start" type="StartInfo" minOccurs="0" />
+      <xs:element name="additionalInfo" type="AdditionalInfo" minOccurs="0" />
+      <xs:element name="applicationInfo" type="EventApplication" minOccurs="0" maxOccurs="1" />
+      <xs:element name="lastApplicationDate" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:choice>
+            <xs:element name="date" type="xs:date" />
+            <xs:element name="text" type="xs:string" />
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="flags" type="Flags" minOccurs="0" maxOccurs="1" />
+    </xs:all>
+    <xs:attribute name="uniqueIdentifier" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="128" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="deliveryMethod" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="128" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="language" use="optional" type="KnownLanguages" />
+    <xs:attribute name="link" use="optional">
+      <xs:simpleType>
+        <xs:restriction base="xs:anyURI">
+          <xs:maxLength value="1024" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="LocationEvent">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+        An event connected to a specific location of the institute
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Event">
+        <xs:attribute name="locationUID" type="xs:string" use="required" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="AreaEvent">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+        An event generally available in a place such a region or a country.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Event">
+        <xs:attribute name="place" type="xs:string" use="required" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="DistanceEvent">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+        .....
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Event"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="AdditionalInfo">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="item">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="key" use="required">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:attribute>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Flags">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="flag">
+        <xs:complexType>
+          <xs:attribute name="name" use="required">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="32"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="startDate" type="xs:date" use="optional" />
+          <xs:attribute name="endDate" type="xs:date" use="optional" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Price">
+    <xs:choice minOccurs="0" maxOccurs="1">
+      <xs:element name="discountRate">
+        <xs:complexType>
+          <xs:attribute name="percentage" use="required">
+            <xs:simpleType>
+              <xs:restriction base="xs:decimal">
+                <xs:minInclusive value="0.0" />
+                <xs:maxInclusive value="100.0" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="startDate" type="xs:date" use="optional" />
+          <xs:attribute name="endDate" type="xs:date" use="optional" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="discount">
+        <xs:complexType>
+          <xs:attribute name="value" type="xs:decimal" use="required" />
+          <xs:attribute name="startDate" type="xs:date" use="optional" />
+          <xs:attribute name="endDate" type="xs:date" use="optional" />
+        </xs:complexType>
+      </xs:element>
+    </xs:choice>
+    <xs:attribute name="vat" use="optional">
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:minInclusive value="0.0" />
+          <xs:maxInclusive value="100.0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="currency" use="optional" type="KnownCurrencies" />
+    <xs:attribute name="vatIncluded" use="optional" type="xs:boolean" />
+    <xs:attribute name="price" type="xs:decimal" use="required" />
+  </xs:complexType>
+
+  <xs:simpleType name="KnownCurrencies">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SEK" />
+      <xs:enumeration value="EUR" />
+      <xs:enumeration value="USD" />
+      <xs:enumeration value="GBP" />
+      <xs:enumeration value="NOK" />
+      <xs:enumeration value="DKK" />
+      <xs:enumeration value="CAD" />
+	    <xs:enumeration value="CHF" />
+	    <xs:enumeration value="RUB" />
+	    <xs:enumeration value="SGD" />
+	    <xs:enumeration value="AUD" />
+	    <xs:enumeration value="KHR" />
+		<xs:enumeration value="PHP" />
+		<xs:enumeration value="RMB" />
+		<xs:enumeration value="PLN" />
+	    <xs:enumeration value="HKD" />
+	    <xs:enumeration value="IDR" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="KnownLanguages">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Afrikaans" />
+      <xs:enumeration value="Arabic" />
+      <xs:enumeration value="Balinese" />
+      <xs:enumeration value="Basque" />
+      <xs:enumeration value="Buginese" />
+      <xs:enumeration value="Bulgarian" />
+      <xs:enumeration value="Chinese" />
+      <xs:enumeration value="Croatian" />
+      <xs:enumeration value="Czech" />
+      <xs:enumeration value="Danish" />
+      <xs:enumeration value="Dutch" />
+      <xs:enumeration value="English" />
+      <xs:enumeration value="Estonian" />
+	  <xs:enumeration value="Filipino" />
+      <xs:enumeration value="Finnish" />
+      <xs:enumeration value="French" />
+      <xs:enumeration value="Frisian" />
+      <xs:enumeration value="German" />
+      <xs:enumeration value="Greek" />
+      <xs:enumeration value="Hebrew" />
+      <xs:enumeration value="Hindi" />
+      <xs:enumeration value="Hungarian" />
+      <xs:enumeration value="Indonesian" />
+      <xs:enumeration value="Italian" />
+      <xs:enumeration value="Japanese" />
+      <xs:enumeration value="Javanese" />
+      <xs:enumeration value="Korean" />
+      <xs:enumeration value="Latin" />
+      <xs:enumeration value="Latvian" />
+      <xs:enumeration value="Norwegian" />
+      <xs:enumeration value="Persian" />
+      <xs:enumeration value="Polish" />
+      <xs:enumeration value="Portuguese" />
+      <xs:enumeration value="Romanian" />
+      <xs:enumeration value="Russian" />
+      <xs:enumeration value="Sami" />
+      <xs:enumeration value="Sanskrit" />
+      <xs:enumeration value="Serbian" />
+      <xs:enumeration value="Slovakian" />
+      <xs:enumeration value="Slovenian" />
+      <xs:enumeration value="Somali" />
+      <xs:enumeration value="Spanish" />
+      <xs:enumeration value="Sundanese" />
+      <xs:enumeration value="Swedish" />
+      <xs:enumeration value="Tamil" />
+      <xs:enumeration value="Thai" />
+      <xs:enumeration value="Tibetan" />
+      <xs:enumeration value="Urdu" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="EventApplication">
+    <xs:attribute name="url" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:anyURI">
+          <xs:maxLength value="1024" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="applicationCode" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="64" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+	  <xs:attribute name="startDate" type="xs:date" use="optional" />
+    <xs:attribute name="endDate" type="xs:date" use="optional" />
+  </xs:complexType>
+</xs:schema>
