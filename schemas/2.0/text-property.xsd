@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://educations.com/XmlImport"
+    elementFormDefault="qualified"
+    xmlns="http://educations.com/XmlImport"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:complexType name="TextProperty" abstract="true">
+    <xs:simpleContent>
+      <xs:extension base="xs:string" />
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="default">
+    <xs:simpleContent>
+      <xs:extension base="TextProperty">
+        <xs:attribute name="name" type="DefaultTextPropertyKey" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="custom">
+    <xs:simpleContent>
+      <xs:extension base="TextProperty">
+        <xs:attribute name="name" use="required">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="128" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="isHtml" type="xs:boolean" use="optional" default="false" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="DefaultTextPropertyKey">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="description" />
+      <xs:enumeration value="qualification" />
+      <xs:enumeration value="platform" />
+      <xs:enumeration value="degree" />
+      <xs:enumeration value="continuing" />
+      <xs:enumeration value="detailedCost" />
+      <xs:enumeration value="technicalPrerequisites" />
+      <xs:enumeration value="applicationDeadline" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="TextPropertyList">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="field" type="TextProperty" />
+    </xs:sequence>
+  </xs:complexType> 
+</xs:schema>

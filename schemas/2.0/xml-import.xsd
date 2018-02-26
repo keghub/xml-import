@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://educations.com/XmlImport"
+    elementFormDefault="qualified"
+    xmlns="http://educations.com/XmlImport"
+    xmlns:xi="http://educations.com/XmlImport"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:include schemaLocation="institute.xsd" />
+  <xs:include schemaLocation="education.xsd" />
+  <xs:include schemaLocation="event.xsd" />
+  <xs:include schemaLocation="event-start-info.xsd" />
+  <xs:include schemaLocation="location.xsd" />
+  <xs:include schemaLocation="text-property.xsd" />
+  <xs:include schemaLocation="information-request.xsd" />
+
+  <xs:element name="informationUpdateBatch">
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="unbounded">
+        <xs:element name="institute" type="Institute">
+          <xs:key name="key-location">
+            <xs:selector xpath="xi:locations/xi:location" />
+            <xs:field xpath="@uniqueIdentifier" />
+          </xs:key>
+          <xs:keyref name="fk-mainLocation" refer="key-location">
+            <xs:selector xpath="." />
+            <xs:field xpath="@mainLocation" />
+          </xs:keyref>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:decimal" fixed="2.0" use="required" />
+    </xs:complexType>
+    <xs:key name="key-institute">
+      <xs:selector xpath="xi:institute" />
+      <xs:field xpath="@id" />
+    </xs:key>
+    <xs:unique name="unique-institute-id">
+      <xs:selector xpath="xi:institute" />
+      <xs:field xpath="@id" />
+    </xs:unique>
+  </xs:element>
+    
+  <xs:complexType name="KeywordList">
+    <xs:sequence minOccurs="0" maxOccurs="15">
+      <xs:element name="keyword">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="64" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SynonymList">
+    <xs:sequence minOccurs="0" maxOccurs="15">
+      <xs:element name="synonym" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

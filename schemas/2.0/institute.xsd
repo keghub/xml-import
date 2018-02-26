@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://educations.com/XmlImport"
+    elementFormDefault="qualified"
+    xmlns="http://educations.com/XmlImport"
+    xmlns:xi="http://educations.com/XmlImport"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:tp="http://educations.com/XmlImport/Text-Property"
+>
+  <xs:include schemaLocation="institute.xsd" />
+  <xs:include schemaLocation="education.xsd" />
+  <xs:include schemaLocation="location.xsd" />
+  <xs:include schemaLocation="text-property.xsd" />
+
+  <xs:complexType name="Institute">
+    <xs:all>
+      <xs:element name="educations">
+        <xs:complexType>
+          <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="education" type="Education" />
+          </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="unique-education-id">
+          <xs:selector xpath="xi:education" />
+          <xs:field xpath="@uniqueIdentifier" />
+        </xs:unique>
+      </xs:element>
+      <xs:element name="locations">
+        <xs:complexType>
+          <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="location" type="Location" />
+          </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="unique-location-id">
+          <xs:selector xpath="xi:location" />
+          <xs:field xpath="@uniqueIdentifier" />
+        </xs:unique>
+      </xs:element>
+    </xs:all>
+    <xs:attribute name="id" type="xs:int" use="required" />
+  </xs:complexType>
+
+</xs:schema>
