@@ -124,7 +124,7 @@
   </xs:complexType>
 
   <xs:complexType name="CategoryList">
-    <xs:sequence minOccurs="0" maxOccurs="10">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
       <xs:element name="category">
         <xs:complexType>
           <xs:attribute name="name" use="required">
@@ -140,7 +140,7 @@
   </xs:complexType>
 
   <xs:complexType name="CertificateList">
-    <xs:sequence minOccurs="0" maxOccurs="10">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
       <xs:element name="certificate">
         <xs:complexType>
           <xs:attribute name="name" use="required">

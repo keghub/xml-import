@@ -40,7 +40,7 @@
   </xs:element>
     
   <xs:complexType name="KeywordList">
-    <xs:sequence minOccurs="0" maxOccurs="15">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
       <xs:element name="keyword">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -52,7 +52,7 @@
   </xs:complexType>
 
   <xs:complexType name="SynonymList">
-    <xs:sequence minOccurs="0" maxOccurs="15">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
       <xs:element name="synonym" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
