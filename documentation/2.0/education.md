@@ -69,7 +69,7 @@ Here is an example of a custom field containing HTML text
 ```
 
 ### Events
-The [`<events />`](../../schemas/2.0/education.xsd#L23-L37) node contains a list of [events](event.md).
+The [`<events />`](../../schemas/2.0/education.xsd#L23-L37) node contains a list of events. [Here you can find information about the events](event.md).
 
 ### Keywords
 The [`<keywords />`](../../schemas/2.0/education.xsd#L39-L44) node contains a list of keywords relevant to the course. Each keyword must be unique.
