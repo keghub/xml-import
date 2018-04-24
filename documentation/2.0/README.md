@@ -39,3 +39,5 @@ We use the identifier to determine whether a certain entity is new, needs to be 
   </institute>
 </informationUpdateBatch>
 ```
+
+Please note that the institute identifier, here shown as `[institute-id]`, must be an integer number.
