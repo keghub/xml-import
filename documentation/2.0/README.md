@@ -26,7 +26,7 @@ We use the identifier to determine whether a certain entity is new, needs to be 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<informationUpdateBatch xmlns="http://educations.com/XmlImport" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0">
+<informationUpdateBatch version="2.0" xmlns="http://educations.com/XmlImport" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <institute id="[institute-id]">
     <educations>
       <education />
