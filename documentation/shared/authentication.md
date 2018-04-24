@@ -1,1 +1,1 @@
-# Authentication methods supported
+# Supported authentication methods
