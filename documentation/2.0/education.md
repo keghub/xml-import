@@ -165,9 +165,9 @@ Currently, you can only specify whom we should forward a lead  for the given cou
 ```xml
 <informationRequestSettings>
   <emailReceivers>
-    <recever emal="test-1@foo.com" />
-    <recever emal="test-2@foo.com" />
-    <recever emal="test-3@foo.com" />
+    <recever email="test-1@foo.com" />
+    <recever email="test-2@foo.com" />
+    <recever email="test-3@foo.com" />
   </emailReceivers>
 </informationRequestSettings>
 ```
