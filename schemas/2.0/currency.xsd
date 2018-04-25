@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://educations.com/XmlImport"
+    elementFormDefault="qualified"
+    xmlns="http://educations.com/XmlImport"
+    xmlns:xi="http://educations.com/XmlImport"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:simpleType name="KnownCurrencies">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SEK" />
+      <xs:enumeration value="EUR" />
+      <xs:enumeration value="USD" />
+      <xs:enumeration value="GBP" />
+      <xs:enumeration value="NOK" />
+      <xs:enumeration value="DKK" />
+      <xs:enumeration value="CAD" />
+	  <xs:enumeration value="CHF" />
+	  <xs:enumeration value="RUB" />
+	  <xs:enumeration value="SGD" />
+	  <xs:enumeration value="AUD" />
+	  <xs:enumeration value="KHR" />
+	  <xs:enumeration value="PHP" />
+	  <xs:enumeration value="RMB" />	  
+	  <xs:enumeration value="PLN" />
+	  <xs:enumeration value="HKD" />
+	  <xs:enumeration value="IDR" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

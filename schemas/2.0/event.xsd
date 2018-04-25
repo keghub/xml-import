@@ -7,6 +7,8 @@
 >
   <xs:include schemaLocation="location.xsd" />
   <xs:include schemaLocation="event-start-info.xsd" />
+  <xs:include schemaLocation="currency.xsd" />
+  <xs:include schemaLocation="language.xsd" />
 
   <xs:complexType name="Event" abstract="true">
     <xs:all>
@@ -119,28 +121,6 @@
     <xs:attribute name="vatIncluded" use="optional" type="xs:boolean" />
     <xs:attribute name="price" type="xs:decimal" use="required" />
   </xs:complexType>
-
-  <xs:simpleType name="KnownCurrencies">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="SEK" />
-      <xs:enumeration value="EUR" />
-      <xs:enumeration value="USD" />
-      <xs:enumeration value="GBP" />
-      <xs:enumeration value="NOK" />
-      <xs:enumeration value="DKK" />
-      <xs:enumeration value="CAD" />
-	  <xs:enumeration value="CHF" />
-	  <xs:enumeration value="RUB" />
-	  <xs:enumeration value="SGD" />
-	  <xs:enumeration value="AUD" />
-	  <xs:enumeration value="KHR" />
-	  <xs:enumeration value="PHP" />
-	  <xs:enumeration value="RMB" />	  
-	  <xs:enumeration value="PLN" />
-	  <xs:enumeration value="HKD" />
-	  <xs:enumeration value="IDR" />
-    </xs:restriction>
-  </xs:simpleType>
 
   <xs:simpleType name="KnownLanguages">
     <xs:restriction base="xs:string">
