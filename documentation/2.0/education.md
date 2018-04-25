@@ -134,7 +134,40 @@ This field is optional.
 ### Default price
 
 ### Application
+The `<application />` node is an instance of the type [`Application`](../../schemas/2.0/education.xsd#L158-L168) and contains the link where visitors can apply for the course or program. 
+
+The content of the element must be a valid URI that matches the default type [anyURI](http://www.datypic.com/sc/xsd/t-xsd_anyURI.html). Additionally, you can specify the period for when the link is valid.
+
+```xml
+<!-- Application link with both start and end date -->
+<application startDate="2018-05-01" endDate="2018-05-31">https://career.educationsmediagroup.com/jobs</application>
+
+<!-- Application link with only the start date -->
+<application startDate="2018-05-01">https://career.educationsmediagroup.com/jobs</application>
+
+<!-- Application link with only the end date -->
+<application endDate="2018-05-31">https://career.educationsmediagroup.com/jobs</application>
+
+<!-- Application link with no dates -->
+<application>https://career.educationsmediagroup.com/jobs</application>
+```
+
+This field is optional.
 
 ### Credits
+The `<credits />` node is a simple element used to express the total amount of credits granted by the program.
 
 ### Information Request settings
+The `<informationRequestSettings />` node is an instance of the type [`InformationRequest`](../../schemas/2.0/information-request.xsd#L8-L28) and can be used to specify settings related to our lead system (_information request_).
+
+Currently, you can only specify whom we should forward a lead  for the given course. This can be done by providing up to 5 email addresses.
+
+```xml
+<informationRequestSettings>
+  <emailReceivers>
+    <recever emal="test-1@foo.com" />
+    <recever emal="test-2@foo.com" />
+    <recever emal="test-3@foo.com" />
+  </emailReceivers>
+</informationRequestSettings>
+```
