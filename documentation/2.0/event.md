@@ -6,7 +6,14 @@ An `<event />` node contains all the information related to a specific occurrenc
 
 As for [institute](institute.md), [education](education.md) and [location](location.md), an event must have an identifier which is unique within its scope (i.e. its education).
 
-Here is a list of the supported attributes by the 
+Here is a list of the supported attributes
+
+|Name|Type|Required|Description|
+|-|-|-|-|
+|uniqueIdentifier|alphanumeric (up to 128)|Yes|The unique identifier for the event|
+|eventTypeID|numeric|Yes|The ID of the type of the training method. [See list](event-types.md)|
+|language|[enumeration](../../schemas/2.0/language.xsd)|No|The instruction language for this event.|
+|link|[URI](http://www.datypic.com/sc/xsd/t-xsd_anyURI.html)|No|A URL pointing to the page of this event|
 
 ### Type of events
 The EMG XML 2.0 supports three types of event
