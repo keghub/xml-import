@@ -7,7 +7,7 @@ It is an instance of the [complex type Education](../../schemas/2.0/education.xs
 |-|-|-|-|
 |uniqueIdentifier|alphanumeric (up to 256)|Yes|The unique identifier for the education|
 |name|alphanumeric (up to 128)|Yes|The name of the education|
-|educationTypeID|numeric|Yes|The ID of the type of the training method. [See list](education-types.md)|
+|educationTypeID|numeric|Yes|The ID of the type of the training method. [See list](../shared/education-types.md)|
 
 In addition, it supports the following nested elements
 * [`<contentFields />`](#content-fields)
