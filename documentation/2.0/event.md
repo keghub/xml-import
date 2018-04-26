@@ -19,7 +19,7 @@ Here is a list of the supported attributes
 In addition, the following nested elements are supported
 
 * [`<price />`](#price) (optional)
-* [`<start />`](#start) (optional)
+* [`<start />`](#event-start) (optional)
 * [`<additionalInfo />`](#additional-information) (optional)
 * [`<applicationInfo />`](#application-information) (optional)
 * [`<lastApplicationDate />`](#last-application-date) (optional)
@@ -60,3 +60,66 @@ Please note that a `price` node with its price set to `0` will be considered as 
 <!-- A free event -->
 <price price="0" />
 ```
+
+### Event start
+
+The `<start />` element is an instance of the type [`StartInfo`](../../schemas/2.0/event-start-info.xsd) and is used to specify when the event will start and its occurrance, if any.
+
+The schema supports five different type of event starts, each requires different information.
+
+#### Fixed start
+
+An event start of type [`Fixed`](../../schemas/2.0/event-start-info.xsd#L10-L19) is used when an event starts on a specific date.
+Additionally, you can specify start time, end date and end time.
+
+```xml
+<!-- This events starts on April 26th -->
+<start xsi:type="Fixed" startDate="2018-04-26" />
+
+<!-- This events starts on April 26th at 08:30 -->
+<start xsi:type="Fixed" startDate="2018-04-26" startTime="08:30:00" />
+
+<!-- This events starts on April 23rd and ends on April 27th -->
+<start xsi:type="Fixed" startDate="2018-04-23" endDate="2018-04-27" />
+
+<!-- This events starts on April 26th at 08:30 and ends at 17:30 -->
+<start xsi:type="Fixed" startDate="2018-04-26" startTime="08:30:00" endTime="17:30:00" />
+```
+
+#### Month start
+
+An event start of type [`Month`](../../schemas/2.0/event-start-info.xsd#L21-L35) is used when an event starts anytime in a month.
+
+The element requires a number to represent the month (from 1 to 12) and the year (in 4 digit format).
+
+```xml
+<!-- This events starts sometimes in December 2018 -->
+<start xsi:type="Month" month="12" year="2018" />
+```
+
+#### Semester start
+
+An event start of type [`Semester`](../../schemas/2.0/event-start-info.xsd#L37-L52) is used when an event starts anytime in a semester.
+
+The schema defines three semesters, `Spring`, `Summer`, and `Fall` without explicitly defining the period of reference.
+Additionally, you can specify an year. If not specified, the event is assumed to start every year at the given semester.
+
+```xml
+<!-- This event starts during the spring of the 2018 -->
+<start xsi:type="Semester" semester="Spring" year="2018" />
+
+<!-- This event starts every spring -->
+<start xsi:type="Semester" semester="Spring" />
+```
+
+#### Always on
+
+An event start of type [`AlwaysOn`](../../schemas/2.0/event-start-info.xsd#L54-L58) is used when an event is always ready to start. It does not require additional information.
+
+```
+<start xsi:type="AlwaysOn" />
+```
+
+#### Text
+
+An event start of type [`Text`](../../schemas/2.0/event-start-info.xsd#L60-L66) is used to present a 
