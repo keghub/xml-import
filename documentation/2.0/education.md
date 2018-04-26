@@ -133,6 +133,10 @@ This field is optional.
 
 ### Default price
 
+The `<defaultPrice />` node is an instance of the type [`Price`]() and contains information for prices that will be applied for every event that has no price specification. [Additional information can be found here](event.md#price).
+
+This field is optional.
+
 ### Application
 The `<application />` node is an instance of the type [`Application`](../../schemas/2.0/education.xsd#L158-L168) and contains the link where visitors can apply for the course or program. 
 
