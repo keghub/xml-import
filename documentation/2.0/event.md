@@ -20,9 +20,9 @@ In addition, the following nested elements are supported
 
 * [`<price />`](#price) (optional)
 * [`<start />`](#event-start) (optional)
-* [`<additionalInfo />`](#additional-information) (optional)
-* [`<applicationInfo />`](#application-information) (optional)
+* [`<applicationInfo />`](#application-data) (optional)
 * [`<lastApplicationDate />`](#last-application-date) (optional)
+* [`<additionalInfo />`](#additional-information) (optional)
 
 ### Type of events
 
@@ -116,10 +116,22 @@ Additionally, you can specify an year. If not specified, the event is assumed to
 
 An event start of type [`AlwaysOn`](../../schemas/2.0/event-start-info.xsd#L54-L58) is used when an event is always ready to start. It does not require additional information.
 
-```
+```xml
 <start xsi:type="AlwaysOn" />
 ```
 
 #### Text
 
-An event start of type [`Text`](../../schemas/2.0/event-start-info.xsd#L60-L66) is used to present a 
+An event start of type [`Text`](../../schemas/2.0/event-start-info.xsd#L60-L66) is used to present information about the start of an event in a paragraph.
+
+Note that users will not be able to filter events that have their start set to an instance of this type.
+
+```xml
+<start xsi:type="Text" description="Lorem ipsum dolor sit amet." />
+```
+
+### Application data
+
+### Last application date
+
+### Specifying additional information
