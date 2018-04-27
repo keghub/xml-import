@@ -20,9 +20,7 @@ In addition, the following nested elements are supported
 
 * [`<price />`](#price) (optional)
 * [`<start />`](#event-start) (optional)
-* [`<applicationInfo />`](#application-data) (optional)
-* [`<lastApplicationDate />`](#last-application-date) (optional)
-* [`<additionalInfo />`](#additional-information) (optional)
+* [Additional optional fields](#additional-information)
 
 ### Type of events
 
@@ -130,8 +128,12 @@ Note that users will not be able to filter events that have their start set to a
 <start xsi:type="Text" description="Lorem ipsum dolor sit amet." />
 ```
 
-### Application data
+### Additional information
 
-### Last application date
+The schema supports additional optional nodes to cover some corner cases.
 
-### Specifying additional information
+`<applicationInfo />` is used to enable the deep linking into some application systems. It requires an URL and an application code. Additionally, it supports the possibility to make the link available only during a set period of time.
+
+`<lastApplicationDate />` is used to display information about the last available date to apply to the event. It's content can either be a date or a descriptive text.
+
+Finally, `<additionalInfo />` is used to provide unstructured information via a list of key/value tuples. The information contained in these tuples must be handled ad-hoc so please use this element only if so instructed by your account manager.
