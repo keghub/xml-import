@@ -12,7 +12,7 @@ Here is a list of the supported attributes
 |Name|Type|Required|Description|
 |-|-|-|-|
 |`uniqueIdentifier`|alphanumeric (up to 128)|Yes|The unique identifier for the event|
-|`eventTypeID`|numeric|Yes|The ID of the type of the training method. [See list](event-types.md)|
+|`eventTypeID`|numeric|Yes|The ID of the type of the training method. Not currently used. Set to `0`|
 |`language`|[enumeration](../../schemas/2.0/language.xsd)|No|The instruction language for this event.|
 |`link`|[URI](http://www.datypic.com/sc/xsd/t-xsd_anyURI.html)|No|A URL pointing to the page of this event|
 
