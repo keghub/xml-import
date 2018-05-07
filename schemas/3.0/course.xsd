@@ -10,11 +10,11 @@
   <xs:include schemaLocation="location.xsd" />
   <xs:include schemaLocation="information-request.xsd" />
   
-  <xs:complexType name="Education">
+  <xs:complexType name="Course">
     <xs:all>
      
       <xs:element name="contentFields" type="EducationTextPropertyList">
-        <xs:unique name="unique-education-contentFields">
+        <xs:unique name="unique-course-contentFields">
           <xs:selector xpath="xi:field" />
           <xs:field xpath="@name" />
         </xs:unique>
@@ -50,7 +50,7 @@
         </xs:simpleType>
       </xs:element>
 
-      <xs:element name="duration" type="EducationDuration" minOccurs="0" />
+      <xs:element name="duration" type="CourseDuration" minOccurs="0" />
 
       <xs:element name="informationRequestSettings" type="InformationRequest" minOccurs="0" maxOccurs="1" />
 
@@ -74,7 +74,7 @@
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
-    <xs:attribute name="educationType"  use="required">
+    <xs:attribute name="courseType"  use="required">
       <xs:simpleType>
         <xs:restriction base="xs:string">
           <xs:maxLength value="128" />
@@ -83,7 +83,7 @@
     </xs:attribute>
   </xs:complexType>
 
-  <xs:complexType name="EducationDuration">
+  <xs:complexType name="CourseDuration">
     <xs:all>
       <xs:element name="specific" minOccurs="0">
         <xs:complexType>

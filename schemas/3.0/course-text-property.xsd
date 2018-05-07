@@ -4,23 +4,23 @@
     xmlns="http://educations.com/XmlImport"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
 >
-  <xs:complexType name="InstituteTextProperty" abstract="true">
+  <xs:complexType name="CourseTextProperty" abstract="true">
     <xs:simpleContent>
       <xs:extension base="xs:string" />
     </xs:simpleContent>
   </xs:complexType>
 
-  <xs:complexType name="providerDefault">
+  <xs:complexType name="default">
     <xs:simpleContent>
-      <xs:extension base="InstituteTextProperty">
-        <xs:attribute name="name" type="InstituteDefaultTextPropertyKey" use="required" />
+      <xs:extension base="CourseTextProperty">
+        <xs:attribute name="name" type="CourseDefaultTextPropertyKey" use="required" />
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
-  
-  <xs:complexType name="providerCustom">
+
+  <xs:complexType name="custom">
     <xs:simpleContent>
-      <xs:extension base="InstituteTextProperty">
+      <xs:extension base="CourseTextProperty">
         <xs:attribute name="name" use="required">
           <xs:simpleType>
             <xs:restriction base="xs:string">
@@ -33,15 +33,22 @@
     </xs:simpleContent>
   </xs:complexType>
 
-  <xs:simpleType name="InstituteDefaultTextPropertyKey">
+  <xs:simpleType name="CourseDefaultTextPropertyKey">
     <xs:restriction base="xs:string">
       <xs:enumeration value="description" />
+      <xs:enumeration value="qualification" />
+      <xs:enumeration value="platform" />
+      <xs:enumeration value="degree" />
+      <xs:enumeration value="continuing" />
+      <xs:enumeration value="detailedCost" />
+      <xs:enumeration value="technicalPrerequisites" />
+      <xs:enumeration value="applicationDeadline" />
     </xs:restriction>
   </xs:simpleType>
 
-  <xs:complexType name="InstituteTextPropertyList">
+  <xs:complexType name="CourseTextPropertyList">
     <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="field" type="InstituteTextProperty" />
+      <xs:element name="field" type="CourseTextProperty" />
     </xs:sequence>
   </xs:complexType> 
 </xs:schema>
