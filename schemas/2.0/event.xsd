@@ -122,59 +122,6 @@
     <xs:attribute name="price" type="xs:decimal" use="required" />
   </xs:complexType>
 
-  <xs:simpleType name="KnownLanguages">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Afrikaans" />
-      <xs:enumeration value="Arabic" />
-      <xs:enumeration value="Balinese" />
-      <xs:enumeration value="Basque" />
-      <xs:enumeration value="Buginese" />
-      <xs:enumeration value="Bulgarian" />
-      <xs:enumeration value="Chinese" />
-      <xs:enumeration value="Croatian" />
-      <xs:enumeration value="Czech" />
-      <xs:enumeration value="Danish" />
-      <xs:enumeration value="Dutch" />
-      <xs:enumeration value="English" />
-      <xs:enumeration value="Estonian" />
-	  <xs:enumeration value="Filipino" />
-      <xs:enumeration value="Finnish" />
-      <xs:enumeration value="French" />
-      <xs:enumeration value="Frisian" />
-      <xs:enumeration value="German" />
-      <xs:enumeration value="Greek" />
-      <xs:enumeration value="Hebrew" />
-      <xs:enumeration value="Hindi" />
-      <xs:enumeration value="Hungarian" />
-      <xs:enumeration value="Indonesian" />
-      <xs:enumeration value="Italian" />
-      <xs:enumeration value="Japanese" />
-      <xs:enumeration value="Javanese" />
-      <xs:enumeration value="Korean" />
-      <xs:enumeration value="Latin" />
-      <xs:enumeration value="Latvian" />
-      <xs:enumeration value="Norwegian" />
-      <xs:enumeration value="Persian" />
-      <xs:enumeration value="Polish" />
-      <xs:enumeration value="Portuguese" />
-      <xs:enumeration value="Romanian" />
-      <xs:enumeration value="Russian" />
-      <xs:enumeration value="Sami" />
-      <xs:enumeration value="Sanskrit" />
-      <xs:enumeration value="Serbian" />
-      <xs:enumeration value="Slovakian" />
-      <xs:enumeration value="Slovenian" />
-      <xs:enumeration value="Somali" />
-      <xs:enumeration value="Spanish" />
-      <xs:enumeration value="Sundanese" />
-      <xs:enumeration value="Swedish" />
-      <xs:enumeration value="Tamil" />
-      <xs:enumeration value="Thai" />
-      <xs:enumeration value="Tibetan" />
-      <xs:enumeration value="Urdu" />
-    </xs:restriction>
-  </xs:simpleType>
-
   <xs:complexType name="EventApplication">
     <xs:attribute name="url" use="required">
       <xs:simpleType>
