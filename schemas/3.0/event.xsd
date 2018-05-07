@@ -59,7 +59,7 @@
   <xs:complexType name="LocationEvent">
     <xs:annotation>
       <xs:documentation xml:lang="en">
-        An event connected to a specific location of the institute
+        An event connected to a specific location of the provider.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -177,16 +177,16 @@
       <xs:enumeration value="NOK" />
       <xs:enumeration value="DKK" />
       <xs:enumeration value="CAD" />
-	    <xs:enumeration value="CHF" />
-	    <xs:enumeration value="RUB" />
-	    <xs:enumeration value="SGD" />
-	    <xs:enumeration value="AUD" />
-	    <xs:enumeration value="KHR" />
-		<xs:enumeration value="PHP" />
-		<xs:enumeration value="RMB" />
-		<xs:enumeration value="PLN" />
-	    <xs:enumeration value="HKD" />
-	    <xs:enumeration value="IDR" />
+      <xs:enumeration value="CHF" />
+      <xs:enumeration value="RUB" />
+      <xs:enumeration value="SGD" />
+      <xs:enumeration value="AUD" />
+      <xs:enumeration value="KHR" />
+      <xs:enumeration value="PHP" />
+      <xs:enumeration value="RMB" />
+      <xs:enumeration value="PLN" />
+      <xs:enumeration value="HKD" />
+      <xs:enumeration value="IDR" />
     </xs:restriction>
   </xs:simpleType>
 
@@ -205,7 +205,7 @@
       <xs:enumeration value="Dutch" />
       <xs:enumeration value="English" />
       <xs:enumeration value="Estonian" />
-	  <xs:enumeration value="Filipino" />
+      <xs:enumeration value="Filipino" />
       <xs:enumeration value="Finnish" />
       <xs:enumeration value="French" />
       <xs:enumeration value="Frisian" />
