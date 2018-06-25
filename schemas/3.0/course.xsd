@@ -13,7 +13,7 @@
   <xs:complexType name="Course">
     <xs:all>
      
-      <xs:element name="contentFields" type="EducationTextPropertyList">
+      <xs:element name="contentFields" type="CourseTextPropertyList">
         <xs:unique name="unique-course-contentFields">
           <xs:selector xpath="xi:field" />
           <xs:field xpath="@name" />
