@@ -67,6 +67,7 @@ namespace EMG.XML
         [XmlIgnore] public bool? IsVatIncluded { get; set; }
 
         [XmlAttribute("vatIncluded")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public bool IsVatIncludedField
         {
             get => IsVatIncludedFieldSpecified && IsVatIncluded.HasValue && IsVatIncluded.Value;
@@ -81,11 +82,14 @@ namespace EMG.XML
             }
         }
 
-        [XmlIgnore] public bool IsVatIncludedFieldSpecified => IsVatIncluded.HasValue;
+        [XmlIgnore]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool IsVatIncludedFieldSpecified => IsVatIncluded.HasValue;
 
         [XmlIgnore] public Currency? Currency { get; set; }
 
         [XmlAttribute("currency")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public Currency CurrencyField
         {
             get => CurrencyFieldSpecified && Currency.HasValue ? Currency.Value : default(Currency);
@@ -100,7 +104,9 @@ namespace EMG.XML
             }
         }
 
-        [XmlIgnore] public bool CurrencyFieldSpecified => Currency.HasValue;
+        [XmlIgnore]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool CurrencyFieldSpecified => Currency.HasValue;
 
         private DiscountNode _discount;
 
@@ -129,7 +135,9 @@ namespace EMG.XML
             }
         }
 
-        [XmlIgnore] public DiscountNodeType DiscountNodeType;
+        [XmlIgnore]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public DiscountNodeType DiscountNodeType;
     }
 
     [XmlType(IncludeInSchema = false)]
@@ -141,6 +149,7 @@ namespace EMG.XML
 
 
         [XmlAttribute("startDate", DataType = "date")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public DateTime StartDateField
         {
             get => StartDateFieldSpecified && StartDate.HasValue ? StartDate.Value : default(DateTime);
@@ -156,6 +165,7 @@ namespace EMG.XML
         }
 
         [XmlAttribute("endDate", DataType = "date")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public DateTime EndDateField
         {
 
@@ -173,9 +183,13 @@ namespace EMG.XML
             }
         }
 
-        [XmlIgnore] public bool StartDateFieldSpecified => StartDate.HasValue;
+        [XmlIgnore]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool StartDateFieldSpecified => StartDate.HasValue;
 
-        [XmlIgnore] public bool EndDateFieldSpecified => EndDate.HasValue;
+        [XmlIgnore]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool EndDateFieldSpecified => EndDate.HasValue;
 
     }
 
@@ -213,6 +227,7 @@ namespace EMG.XML
 
 
         [XmlAttribute("startDate", DataType = "date")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public DateTime StartDateField
         {
             get => StartDateFieldSpecified && StartDate.HasValue ? StartDate.Value : default(DateTime);
@@ -230,6 +245,7 @@ namespace EMG.XML
         }
 
         [XmlAttribute("endDate", DataType = "date")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public DateTime EndDateField
         {
 
@@ -247,9 +263,13 @@ namespace EMG.XML
             }
         }
 
-        [XmlIgnore] public bool StartDateFieldSpecified => StartDate.HasValue;
+        [XmlIgnore]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool StartDateFieldSpecified => StartDate.HasValue;
 
-        [XmlIgnore] public bool EndDateFieldSpecified => EndDate.HasValue;
+        [XmlIgnore]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool EndDateFieldSpecified => EndDate.HasValue;
 
     }
 
@@ -274,6 +294,7 @@ namespace EMG.XML
 
 
         [XmlAttribute("startDate", DataType = "date")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public DateTime StartDateField
         {
             get => StartDateFieldSpecified && StartDate.HasValue ? StartDate.Value : default(DateTime);
@@ -291,6 +312,7 @@ namespace EMG.XML
         }
 
         [XmlAttribute("endDate", DataType = "date")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public DateTime EndDateField
         {
 
@@ -308,9 +330,13 @@ namespace EMG.XML
             }
         }
 
-        [XmlIgnore] public bool StartDateFieldSpecified => StartDate.HasValue;
+        [XmlIgnore]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool StartDateFieldSpecified => StartDate.HasValue;
 
-        [XmlIgnore] public bool EndDateFieldSpecified => EndDate.HasValue;
+        [XmlIgnore]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool EndDateFieldSpecified => EndDate.HasValue;
     }
 
     [XmlType(AnonymousType = true, Namespace = "http://educations.com/XmlImport")]
@@ -337,7 +363,9 @@ namespace EMG.XML
         [XmlElement("text", Type = typeof(string), DataType = "string")]
         public object Item { get; set; }
 
-        [XmlIgnore] public LastApplicationDateNodeType NodeType;
+        [XmlIgnore]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public LastApplicationDateNodeType NodeType;
     }
 
     [XmlType(IncludeInSchema = false)]

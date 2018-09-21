@@ -35,6 +35,7 @@ namespace EMG.XML
         public string Content { get; set; }
 
         [XmlText]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public XmlNode[] Value
         {
             get => new XmlNode[] {new XmlDocument().CreateCDataSection(Content)};

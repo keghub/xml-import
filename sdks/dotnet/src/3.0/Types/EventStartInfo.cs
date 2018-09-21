@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace EMG.XML
@@ -37,6 +38,7 @@ namespace EMG.XML
         [XmlIgnore] public int? Year { get; set; }
 
         [XmlAttribute("year")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public int YearField
         {
             get => YearFieldSpecified && Year.HasValue ? Year.Value : default(int);
@@ -53,7 +55,9 @@ namespace EMG.XML
             }
         }
 
-        [XmlIgnore] public bool YearFieldSpecified => Year.HasValue;
+        [XmlIgnore]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool YearFieldSpecified => Year.HasValue;
     }
 
     [XmlType("Month", Namespace = "http://educations.com/XmlImport")]
@@ -65,6 +69,7 @@ namespace EMG.XML
         [XmlIgnore] public int? Year { get; set; }
 
         [XmlAttribute("year")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public int YearField
         {
             get => YearFieldSpecified && Year.HasValue ? Year.Value : default(int);
@@ -81,7 +86,9 @@ namespace EMG.XML
             }
         }
 
-        [XmlIgnore] public bool YearFieldSpecified => Year.HasValue;
+        [XmlIgnore]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool YearFieldSpecified => Year.HasValue;
     }
 
     [XmlType("Fixed", Namespace = "http://educations.com/XmlImport")]
@@ -93,6 +100,7 @@ namespace EMG.XML
         [XmlIgnore] public DateTime? EndDate { get; set; }
 
         [XmlAttribute("endDate", DataType = "date")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public DateTime EndDateField
         {
             get => EndDateFieldSpecified && EndDate.HasValue ? EndDate.Value : default(DateTime);
@@ -109,11 +117,14 @@ namespace EMG.XML
             }
         }
 
-        [XmlIgnore] public bool EndDateFieldSpecified => EndDate.HasValue;
+        [XmlIgnore]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool EndDateFieldSpecified => EndDate.HasValue;
 
         [XmlIgnore] public DateTime? StartTime { get; set; }
 
         [XmlAttribute("startTime", DataType = "time")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public DateTime StartTimeField
         {
             get => StartTimeFieldSpecified && StartTime.HasValue ? StartTime.Value : default(DateTime);
@@ -130,11 +141,14 @@ namespace EMG.XML
             }
         }
 
-        [XmlIgnore] public bool StartTimeFieldSpecified => StartTime.HasValue;
+        [XmlIgnore]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool StartTimeFieldSpecified => StartTime.HasValue;
 
         [XmlIgnore] public DateTime? EndTime { get; set; }
 
         [XmlAttribute("endTime", DataType = "time")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public DateTime EndTimeField
         {
             get => EndTimeFieldSpecified && EndTime.HasValue ? EndTime.Value : default(DateTime);
@@ -151,7 +165,9 @@ namespace EMG.XML
             }
         }
 
-        [XmlIgnore] public bool EndTimeFieldSpecified => EndTime.HasValue;
+        [XmlIgnore]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool EndTimeFieldSpecified => EndTime.HasValue;
     }
 
     [XmlType(AnonymousType = true, Namespace = "http://educations.com/XmlImport")]

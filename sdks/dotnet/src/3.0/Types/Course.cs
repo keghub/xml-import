@@ -8,8 +8,7 @@ namespace EMG.XML
     [XmlType("Course", Namespace = "http://educations.com/XmlImport")]
     public class Course
     {
-        [XmlAttribute("uniqueIdentifier")]
-        public string UniqueIdentifier { get; set; }
+        [XmlAttribute("uniqueIdentifier")] public string UniqueIdentifier { get; set; }
 
         [XmlArray("contentFields")]
         [XmlArrayItem("field")]
@@ -26,13 +25,12 @@ namespace EMG.XML
     public abstract class CourseTextProperty
     {
 
-        [XmlIgnore]
-        public string Content { get; set; }
+        [XmlIgnore] public string Content { get; set; }
 
         [XmlText]
         public XmlNode[] Value
         {
-            get => new XmlNode[] { new XmlDocument().CreateCDataSection(Content) };
+            get => new XmlNode[] {new XmlDocument().CreateCDataSection(Content)};
             set
             {
                 if (value == null)
@@ -54,43 +52,33 @@ namespace EMG.XML
     [XmlType("default", Namespace = "http://educations.com/XmlImport")]
     public class CourseDefaultTextProperty : CourseTextProperty
     {
-        [XmlAttribute("name")]
-        public CourseDefaultTextPropertyKey Name { get; set; }
+        [XmlAttribute("name")] public CourseDefaultTextPropertyKey Name { get; set; }
     }
 
     [XmlType("CourseDefaultTextPropertyKey", Namespace = "http://educations.com/XmlImport")]
     public enum CourseDefaultTextPropertyKey
     {
-        [XmlEnum("description")]
-        Description,
+        [XmlEnum("description")] Description,
 
-        [XmlEnum("qualification")]
-        Qualification,
+        [XmlEnum("qualification")] Qualification,
 
-        [XmlEnum("platform")]
-        Platform,
+        [XmlEnum("platform")] Platform,
 
-        [XmlEnum("degree")]
-        Degree,
+        [XmlEnum("degree")] Degree,
 
-        [XmlEnum("continuing")]
-        Continuing,
+        [XmlEnum("continuing")] Continuing,
 
-        [XmlEnum("detailedCost")]
-        DetailedCost,
+        [XmlEnum("detailedCost")] DetailedCost,
 
-        [XmlEnum("technicalPrerequisites")]
-        TechnicalPrerequisites,
+        [XmlEnum("technicalPrerequisites")] TechnicalPrerequisites,
 
-        [XmlEnum("applicationDeadline")]
-        ApplicationDeadline,
+        [XmlEnum("applicationDeadline")] ApplicationDeadline,
     }
 
     [XmlType("custom", Namespace = "http://educations.com/XmlImport")]
     public class CourseCustomTextProperty : CourseTextProperty
     {
-        [XmlAttribute("name")]
-        public string Name { get; set; }
+        [XmlAttribute("name")] public string Name { get; set; }
 
 
         [XmlAttribute("isHtml")]

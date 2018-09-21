@@ -5,148 +5,100 @@ namespace EMG.XML
     [XmlType("KnownLanguages", Namespace = "http://educations.com/XmlImport")]
     public enum Language
     {
-        [XmlEnum]
-        Afrikaans,
+        [XmlEnum] Afrikaans,
 
-        [XmlEnum]
-        Arabic,
+        [XmlEnum] Arabic,
 
-        [XmlEnum]
-        Balinese,
+        [XmlEnum] Balinese,
 
-        [XmlEnum]
-        Basque,
+        [XmlEnum] Basque,
 
-        [XmlEnum]
-        Buginese,
+        [XmlEnum] Buginese,
 
-        [XmlEnum]
-        Bulgarian,
+        [XmlEnum] Bulgarian,
 
-        [XmlEnum]
-        Chinese,
+        [XmlEnum] Chinese,
 
-        [XmlEnum]
-        Croatian,
+        [XmlEnum] Croatian,
 
-        [XmlEnum]
-        Czech,
+        [XmlEnum] Czech,
 
-        [XmlEnum]
-        Danish,
+        [XmlEnum] Danish,
 
-        [XmlEnum]
-        Dutch,
+        [XmlEnum] Dutch,
 
-        [XmlEnum]
-        English,
+        [XmlEnum] English,
 
-        [XmlEnum]
-        Estonian,
+        [XmlEnum] Estonian,
 
-        [XmlEnum]
-        Filipino,
+        [XmlEnum] Filipino,
 
-        [XmlEnum]
-        Finnish,
+        [XmlEnum] Finnish,
 
-        [XmlEnum]
-        French,
+        [XmlEnum] French,
 
-        [XmlEnum]
-        Frisian,
+        [XmlEnum] Frisian,
 
-        [XmlEnum]
-        German,
+        [XmlEnum] German,
 
-        [XmlEnum]
-        Greek,
+        [XmlEnum] Greek,
 
-        [XmlEnum]
-        Hebrew,
+        [XmlEnum] Hebrew,
 
-        [XmlEnum]
-        Hindi,
+        [XmlEnum] Hindi,
 
-        [XmlEnum]
-        Hungarian,
+        [XmlEnum] Hungarian,
 
-        [XmlEnum]
-        Indonesian,
+        [XmlEnum] Indonesian,
 
-        [XmlEnum]
-        Italian,
+        [XmlEnum] Italian,
 
-        [XmlEnum]
-        Japanese,
+        [XmlEnum] Japanese,
 
-        [XmlEnum]
-        Javanese,
+        [XmlEnum] Javanese,
 
-        [XmlEnum]
-        Korean,
+        [XmlEnum] Korean,
 
-        [XmlEnum]
-        Latin,
+        [XmlEnum] Latin,
 
-        [XmlEnum]
-        Latvian,
+        [XmlEnum] Latvian,
 
-        [XmlEnum]
-        Norwegian,
+        [XmlEnum] Norwegian,
 
-        [XmlEnum]
-        Persian,
+        [XmlEnum] Persian,
 
-        [XmlEnum]
-        Polish,
+        [XmlEnum] Polish,
 
-        [XmlEnum]
-        Portuguese,
+        [XmlEnum] Portuguese,
 
-        [XmlEnum]
-        Romanian,
+        [XmlEnum] Romanian,
 
-        [XmlEnum]
-        Russian,
+        [XmlEnum] Russian,
 
-        [XmlEnum]
-        Sami,
+        [XmlEnum] Sami,
 
-        [XmlEnum]
-        Sanskrit,
+        [XmlEnum] Sanskrit,
 
-        [XmlEnum]
-        Serbian,
+        [XmlEnum] Serbian,
 
-        [XmlEnum]
-        Slovakian,
+        [XmlEnum] Slovakian,
 
-        [XmlEnum]
-        Slovenian,
+        [XmlEnum] Slovenian,
 
-        [XmlEnum]
-        Somali,
+        [XmlEnum] Somali,
 
-        [XmlEnum]
-        Spanish,
+        [XmlEnum] Spanish,
 
-        [XmlEnum]
-        Sundanese,
+        [XmlEnum] Sundanese,
 
-        [XmlEnum]
-        Swedish,
+        [XmlEnum] Swedish,
 
-        [XmlEnum]
-        Tamil,
+        [XmlEnum] Tamil,
 
-        [XmlEnum]
-        Thai,
+        [XmlEnum] Thai,
 
-        [XmlEnum]
-        Tibetan,
+        [XmlEnum] Tibetan,
 
-        [XmlEnum]
-        Urdu
+        [XmlEnum] Urdu
     }
 }

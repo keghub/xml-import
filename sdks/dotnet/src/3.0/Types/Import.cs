@@ -12,7 +12,6 @@ namespace EMG.XML
     public class Import
     {
         [XmlElement("provider")]
-        
         public Provider[] Providers { get; set; }
 
         [XmlAttribute("version")]

@@ -6,55 +6,38 @@ namespace EMG.XML
     public enum Currency
     {
 
-        [XmlEnum]
-        SEK,
+        [XmlEnum] SEK,
 
-        [XmlEnum]
-        EUR,
+        [XmlEnum] EUR,
 
-        [XmlEnum]
-        USD,
+        [XmlEnum] USD,
 
-        [XmlEnum]
-        GBP,
+        [XmlEnum] GBP,
 
-        [XmlEnum]
-        NOK,
+        [XmlEnum] NOK,
 
-        [XmlEnum]
-        DKK,
+        [XmlEnum] DKK,
 
-        [XmlEnum]
-        CAD,
+        [XmlEnum] CAD,
 
-        [XmlEnum]
-        CHF,
+        [XmlEnum] CHF,
 
-        [XmlEnum]
-        RUB,
+        [XmlEnum] RUB,
 
-        [XmlEnum]
-        SGD,
+        [XmlEnum] SGD,
 
-        [XmlEnum]
-        AUD,
+        [XmlEnum] AUD,
 
-        [XmlEnum]
-        KHR,
+        [XmlEnum] KHR,
 
-        [XmlEnum]
-        PHP,
+        [XmlEnum] PHP,
 
-        [XmlEnum]
-        RMB,
+        [XmlEnum] RMB,
 
-        [XmlEnum]
-        PLN,
+        [XmlEnum] PLN,
 
-        [XmlEnum]
-        HKD,
+        [XmlEnum] HKD,
 
-        [XmlEnum]
-        IDR,
+        [XmlEnum] IDR,
     }
 }
