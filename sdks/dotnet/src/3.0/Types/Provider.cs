@@ -30,7 +30,6 @@ namespace EMG.XML
     [XmlInclude(typeof(ProviderCustomTextProperty))]
     public abstract class ProviderTextProperty
     {
-
         [XmlIgnore]
         public string Content { get; set; }
 
@@ -38,7 +37,7 @@ namespace EMG.XML
         [EditorBrowsable(EditorBrowsableState.Never)]
         public XmlNode[] Value
         {
-            get => new XmlNode[] {new XmlDocument().CreateCDataSection(Content)};
+            get => new XmlNode[] { new XmlDocument().CreateCDataSection(Content) };
             set
             {
                 if (value == null)
@@ -67,8 +66,7 @@ namespace EMG.XML
     [XmlType("ProviderDefaultTextPropertyKey", Namespace = "http://educations.com/XmlImport")]
     public enum ProviderDefaultTextPropertyKey
     {
-        [XmlEnum("description")]
-        Description
+        [XmlEnum("description")] Description
     }
 
     [XmlType("providerCustom", Namespace = "http://educations.com/XmlImport")]
@@ -76,7 +74,6 @@ namespace EMG.XML
     {
         [XmlAttribute("name")]
         public string Name { get; set; }
-
 
         [XmlAttribute("isHtml")]
         [DefaultValue(false)]

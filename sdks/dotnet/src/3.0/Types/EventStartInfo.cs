@@ -10,11 +10,7 @@ namespace EMG.XML
     [XmlInclude(typeof(SemesterEventStartInfo))]
     [XmlInclude(typeof(MonthEventStartInfo))]
     [XmlInclude(typeof(FixedEventStartInfo))]
-
-    public abstract class EventStartInfo
-    {
-
-    }
+    public abstract class EventStartInfo { }
 
     [XmlType("Text", Namespace = "http://educations.com/XmlImport")]
     public class TextEventStartInfo : EventStartInfo
@@ -24,10 +20,7 @@ namespace EMG.XML
     }
 
     [XmlType("AlwaysOpen", Namespace = "http://educations.com/XmlImport")]
-    public class AlwaysOpenEventStartInfo : EventStartInfo
-    {
-
-    }
+    public class AlwaysOpenEventStartInfo : EventStartInfo { }
 
     [XmlType("Semester", Namespace = "http://educations.com/XmlImport")]
     public class SemesterEventStartInfo : EventStartInfo
@@ -35,7 +28,8 @@ namespace EMG.XML
         [XmlAttribute("semester")]
         public Semester Semester { get; set; }
 
-        [XmlIgnore] public int? Year { get; set; }
+        [XmlIgnore]
+        public int? Year { get; set; }
 
         [XmlAttribute("year")]
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -66,7 +60,8 @@ namespace EMG.XML
         [XmlAttribute("month")]
         public Month Month { get; set; }
 
-        [XmlIgnore] public int? Year { get; set; }
+        [XmlIgnore]
+        public int? Year { get; set; }
 
         [XmlAttribute("year")]
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -94,10 +89,11 @@ namespace EMG.XML
     [XmlType("Fixed", Namespace = "http://educations.com/XmlImport")]
     public class FixedEventStartInfo : EventStartInfo
     {
-        [XmlAttribute("startDate", DataType =  "date")]
+        [XmlAttribute("startDate", DataType = "date")]
         public DateTime StartDate { get; set; }
 
-        [XmlIgnore] public DateTime? EndDate { get; set; }
+        [XmlIgnore]
+        public DateTime? EndDate { get; set; }
 
         [XmlAttribute("endDate", DataType = "date")]
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -121,7 +117,8 @@ namespace EMG.XML
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool EndDateFieldSpecified => EndDate.HasValue;
 
-        [XmlIgnore] public DateTime? StartTime { get; set; }
+        [XmlIgnore]
+        public DateTime? StartTime { get; set; }
 
         [XmlAttribute("startTime", DataType = "time")]
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -145,7 +142,8 @@ namespace EMG.XML
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool StartTimeFieldSpecified => StartTime.HasValue;
 
-        [XmlIgnore] public DateTime? EndTime { get; set; }
+        [XmlIgnore]
+        public DateTime? EndTime { get; set; }
 
         [XmlAttribute("endTime", DataType = "time")]
         [EditorBrowsable(EditorBrowsableState.Never)]

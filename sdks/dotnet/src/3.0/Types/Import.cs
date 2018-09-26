@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Xml.Serialization;
 
 namespace EMG.XML
@@ -8,7 +6,6 @@ namespace EMG.XML
     [Serializable]
     [XmlType(AnonymousType = true, Namespace = "http://educations.com/XmlImport")]
     [XmlRoot("import", Namespace = "http://educations.com/XmlImport", IsNullable = false)]
-
     public class Import
     {
         [XmlElement("provider")]

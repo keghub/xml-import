@@ -5,7 +5,6 @@ namespace EMG.XML
     [XmlType("KnownCurrencies", Namespace = "http://educations.com/XmlImport")]
     public enum Currency
     {
-
         [XmlEnum] SEK,
 
         [XmlEnum] EUR,

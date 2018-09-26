@@ -58,7 +58,6 @@ namespace EMG.XML
         public string Country { get; set; }
     }
 
-
     [XmlType(AnonymousType = true, Namespace = "http://educations.com/XmlImport")]
     public class LocationContacts
     {

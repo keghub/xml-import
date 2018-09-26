@@ -10,53 +10,59 @@ namespace EMG.XML
     [XmlInclude(typeof(LocationEvent))]
     public abstract class Event
     {
-        [XmlAttribute("uniqueIdentifier")] public string UniqueIdentifier { get; set; }
+        [XmlAttribute("uniqueIdentifier")]
+        public string UniqueIdentifier { get; set; }
 
-        [XmlAttribute("deliveryMethod")] public string DeliveryMethod { get; set; }
+        [XmlAttribute("deliveryMethod")]
+        public string DeliveryMethod { get; set; }
 
-        [XmlAttribute("language")] public Language Language { get; set; }
+        [XmlAttribute("language")]
+        public Language Language { get; set; }
 
-        [XmlAttribute("link")] public string Link { get; set; }
+        [XmlAttribute("link")]
+        public string Link { get; set; }
 
         [XmlElement("pace")]
         [DefaultValue(100)]
         public decimal Pace { get; set; }
 
-        [XmlElement("price")] public PriceNode Price { get; set; }
+        [XmlElement("price")]
+        public PriceNode Price { get; set; }
 
-        [XmlElement("applicationInfo")] public EventApplicationNode Application { get; set; }
+        [XmlElement("applicationInfo")]
+        public EventApplicationNode Application { get; set; }
 
         [XmlArray("additionalInfo")]
         [XmlArrayItem("item")]
         public AdditionalInfoItem[] AdditionalInfo { get; set; }
 
-        [XmlElement("lastApplicationDate")] public LastApplicationDateNode LastApplicationDate { get; set; }
+        [XmlElement("lastApplicationDate")]
+        public LastApplicationDateNode LastApplicationDate { get; set; }
 
-        [XmlElement("start")] public EventStartInfo StartInfo { get; set; }
+        [XmlElement("start")]
+        public EventStartInfo StartInfo { get; set; }
 
         [XmlArray("flags")]
         [XmlArrayItem("flag")]
         public Flag[] Flags { get; set; }
-
     }
 
     [XmlType("LocationEvent", Namespace = "http://educations.com/XmlImport")]
     public class LocationEvent : Event
     {
-        [XmlAttribute("locationUID")] public string LocationUniqueIdentifier { get; set; }
+        [XmlAttribute("locationUID")]
+        public string LocationUniqueIdentifier { get; set; }
     }
 
     [XmlType("AreaEvent", Namespace = "http://educations.com/XmlImport")]
     public class AreaEvent : Event
     {
-        [XmlAttribute("place")] public string Place { get; set; }
+        [XmlAttribute("place")]
+        public string Place { get; set; }
     }
 
     [XmlType("DistanceEvent", Namespace = "http://educations.com/XmlImport")]
-    public class DistanceEvent : Event
-    {
-
-    }
+    public class DistanceEvent : Event { }
 
     [XmlType("Price", Namespace = "http://educations.com/XmlImport")]
     public class PriceNode
@@ -64,7 +70,8 @@ namespace EMG.XML
         [XmlAttribute("price")]
         public decimal Price { get; set; }
 
-        [XmlIgnore] public bool? IsVatIncluded { get; set; }
+        [XmlIgnore]
+        public bool? IsVatIncluded { get; set; }
 
         [XmlAttribute("vatIncluded")]
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -86,7 +93,8 @@ namespace EMG.XML
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool IsVatIncludedFieldSpecified => IsVatIncluded.HasValue;
 
-        [XmlIgnore] public Currency? Currency { get; set; }
+        [XmlIgnore]
+        public Currency? Currency { get; set; }
 
         [XmlAttribute("currency")]
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -135,18 +143,18 @@ namespace EMG.XML
             }
         }
 
-        [XmlIgnore]
-        [EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlIgnore] [EditorBrowsable(EditorBrowsableState.Never)]
         public DiscountNodeType DiscountNodeType;
     }
 
     [XmlType(IncludeInSchema = false)]
     public abstract class DiscountNode
     {
-        [XmlIgnore] public DateTime? StartDate { get; set; }
+        [XmlIgnore]
+        public DateTime? StartDate { get; set; }
 
-        [XmlIgnore] public DateTime? EndDate { get; set; }
-
+        [XmlIgnore]
+        public DateTime? EndDate { get; set; }
 
         [XmlAttribute("startDate", DataType = "date")]
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -168,7 +176,6 @@ namespace EMG.XML
         [EditorBrowsable(EditorBrowsableState.Never)]
         public DateTime EndDateField
         {
-
             get => EndDateFieldSpecified && EndDate.HasValue ? EndDate.Value : default(DateTime);
             set
             {
@@ -190,7 +197,6 @@ namespace EMG.XML
         [XmlIgnore]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool EndDateFieldSpecified => EndDate.HasValue;
-
     }
 
     [XmlType(AnonymousType = true, Namespace = "http://educations.com/XmlImport")]
@@ -217,14 +223,17 @@ namespace EMG.XML
     [XmlType("EventApplication", Namespace = "http://educations.com/XmlImport")]
     public class EventApplicationNode
     {
-        [XmlAttribute("url")] public string Url { get; set; }
+        [XmlAttribute("url")]
+        public string Url { get; set; }
 
-        [XmlAttribute("applicationCode")] public string ApplicationCode { get; set; }
+        [XmlAttribute("applicationCode")]
+        public string ApplicationCode { get; set; }
 
-        [XmlIgnore] public DateTime? StartDate { get; set; }
+        [XmlIgnore]
+        public DateTime? StartDate { get; set; }
 
-        [XmlIgnore] public DateTime? EndDate { get; set; }
-
+        [XmlIgnore]
+        public DateTime? EndDate { get; set; }
 
         [XmlAttribute("startDate", DataType = "date")]
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -248,7 +257,6 @@ namespace EMG.XML
         [EditorBrowsable(EditorBrowsableState.Never)]
         public DateTime EndDateField
         {
-
             get => EndDateFieldSpecified && EndDate.HasValue ? EndDate.Value : default(DateTime);
             set
             {
@@ -270,7 +278,6 @@ namespace EMG.XML
         [XmlIgnore]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool EndDateFieldSpecified => EndDate.HasValue;
-
     }
 
     [XmlType(AnonymousType = true, Namespace = "http://educations.com/XmlImport")]
@@ -286,12 +293,14 @@ namespace EMG.XML
     [XmlType(AnonymousType = true, Namespace = "http://educations.com/XmlImport")]
     public class Flag
     {
-        [XmlAttribute("name")] public string Name { get; set; }
+        [XmlAttribute("name")]
+        public string Name { get; set; }
 
-        [XmlIgnore] public DateTime? StartDate { get; set; }
+        [XmlIgnore]
+        public DateTime? StartDate { get; set; }
 
-        [XmlIgnore] public DateTime? EndDate { get; set; }
-
+        [XmlIgnore]
+        public DateTime? EndDate { get; set; }
 
         [XmlAttribute("startDate", DataType = "date")]
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -315,7 +324,6 @@ namespace EMG.XML
         [EditorBrowsable(EditorBrowsableState.Never)]
         public DateTime EndDateField
         {
-
             get => EndDateFieldSpecified && EndDate.HasValue ? EndDate.Value : default(DateTime);
             set
             {
@@ -342,9 +350,7 @@ namespace EMG.XML
     [XmlType(AnonymousType = true, Namespace = "http://educations.com/XmlImport")]
     public class LastApplicationDateNode
     {
-        public LastApplicationDateNode()
-        {
-        }
+        public LastApplicationDateNode() { }
 
         public LastApplicationDateNode(DateTime date)
         {
@@ -363,8 +369,7 @@ namespace EMG.XML
         [XmlElement("text", Type = typeof(string), DataType = "string")]
         public object Item { get; set; }
 
-        [XmlIgnore]
-        [EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlIgnore] [EditorBrowsable(EditorBrowsableState.Never)]
         public LastApplicationDateNodeType NodeType;
     }
 
