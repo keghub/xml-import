@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 namespace EMG.XML
 {
     [XmlType("Course", Namespace = "http://educations.com/XmlImport")]
-    public class Course
+    public class CourseNode
     {
         [XmlAttribute("uniqueIdentifier")]
         public string UniqueIdentifier { get; set; }
@@ -17,7 +17,7 @@ namespace EMG.XML
 
         [XmlArray("events")]
         [XmlArrayItem("event")]
-        public Event[] Events { get; set; }
+        public EventNode[] Events { get; set; }
     }
 
     [XmlType("CourseTextProperty", Namespace = "http://educations.com/XmlImport")]

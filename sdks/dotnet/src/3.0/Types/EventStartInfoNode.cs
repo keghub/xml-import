@@ -5,25 +5,25 @@ using System.Xml.Serialization;
 namespace EMG.XML
 {
     [XmlType("StartInfo", Namespace = "http://educations.com/XmlImport")]
-    [XmlInclude(typeof(TextEventStartInfo))]
-    [XmlInclude(typeof(AlwaysOpenEventStartInfo))]
-    [XmlInclude(typeof(SemesterEventStartInfo))]
-    [XmlInclude(typeof(MonthEventStartInfo))]
-    [XmlInclude(typeof(FixedEventStartInfo))]
-    public abstract class EventStartInfo { }
+    [XmlInclude(typeof(TextEventStartInfoNode))]
+    [XmlInclude(typeof(AlwaysOpenEventStartInfoNode))]
+    [XmlInclude(typeof(SemesterEventStartInfoNode))]
+    [XmlInclude(typeof(MonthEventStartInfoNode))]
+    [XmlInclude(typeof(FixedEventStartInfoNode))]
+    public abstract class EventStartInfoNode { }
 
     [XmlType("Text", Namespace = "http://educations.com/XmlImport")]
-    public class TextEventStartInfo : EventStartInfo
+    public class TextEventStartInfoNode : EventStartInfoNode
     {
         [XmlAttribute("description")]
         public string Description { get; set; }
     }
 
     [XmlType("AlwaysOpen", Namespace = "http://educations.com/XmlImport")]
-    public class AlwaysOpenEventStartInfo : EventStartInfo { }
+    public class AlwaysOpenEventStartInfoNode : EventStartInfoNode { }
 
     [XmlType("Semester", Namespace = "http://educations.com/XmlImport")]
-    public class SemesterEventStartInfo : EventStartInfo
+    public class SemesterEventStartInfoNode : EventStartInfoNode
     {
         [XmlAttribute("semester")]
         public Semester Semester { get; set; }
@@ -55,7 +55,7 @@ namespace EMG.XML
     }
 
     [XmlType("Month", Namespace = "http://educations.com/XmlImport")]
-    public class MonthEventStartInfo : EventStartInfo
+    public class MonthEventStartInfoNode : EventStartInfoNode
     {
         [XmlAttribute("month")]
         public Month Month { get; set; }
@@ -87,7 +87,7 @@ namespace EMG.XML
     }
 
     [XmlType("Fixed", Namespace = "http://educations.com/XmlImport")]
-    public class FixedEventStartInfo : EventStartInfo
+    public class FixedEventStartInfoNode : EventStartInfoNode
     {
         [XmlAttribute("startDate", DataType = "date")]
         public DateTime StartDate { get; set; }

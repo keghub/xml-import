@@ -7,15 +7,15 @@ namespace EMG.XML
 {
     [Serializable]
     [XmlType("Provider", Namespace = "http://educations.com/XmlImport")]
-    public class Provider
+    public class ProviderNode
     {
         [XmlArray("locations")]
         [XmlArrayItem("location")]
-        public Location[] Locations { get; set; }
+        public LocationNode[] Locations { get; set; }
 
         [XmlArray("courses")]
         [XmlArrayItem("course")]
-        public Course[] Courses { get; set; }
+        public CourseNode[] Courses { get; set; }
 
         [XmlAttribute("uniqueIdentifier")]
         public string UniqueIdentifier { get; set; }

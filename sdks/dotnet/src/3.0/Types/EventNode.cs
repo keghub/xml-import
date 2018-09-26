@@ -8,7 +8,7 @@ namespace EMG.XML
     [XmlInclude(typeof(DistanceEvent))]
     [XmlInclude(typeof(AreaEvent))]
     [XmlInclude(typeof(LocationEvent))]
-    public abstract class Event
+    public abstract class EventNode
     {
         [XmlAttribute("uniqueIdentifier")]
         public string UniqueIdentifier { get; set; }
@@ -40,29 +40,29 @@ namespace EMG.XML
         public LastApplicationDateNode LastApplicationDate { get; set; }
 
         [XmlElement("start")]
-        public EventStartInfo StartInfo { get; set; }
+        public EventStartInfoNode StartInfo { get; set; }
 
         [XmlArray("flags")]
         [XmlArrayItem("flag")]
-        public Flag[] Flags { get; set; }
+        public FlagNode[] Flags { get; set; }
     }
 
     [XmlType("LocationEvent", Namespace = "http://educations.com/XmlImport")]
-    public class LocationEvent : Event
+    public class LocationEvent : EventNode
     {
         [XmlAttribute("locationUID")]
         public string LocationUniqueIdentifier { get; set; }
     }
 
     [XmlType("AreaEvent", Namespace = "http://educations.com/XmlImport")]
-    public class AreaEvent : Event
+    public class AreaEvent : EventNode
     {
         [XmlAttribute("place")]
         public string Place { get; set; }
     }
 
     [XmlType("DistanceEvent", Namespace = "http://educations.com/XmlImport")]
-    public class DistanceEvent : Event { }
+    public class DistanceEvent : EventNode { }
 
     [XmlType("Price", Namespace = "http://educations.com/XmlImport")]
     public class PriceNode
@@ -291,7 +291,7 @@ namespace EMG.XML
     }
 
     [XmlType(AnonymousType = true, Namespace = "http://educations.com/XmlImport")]
-    public class Flag
+    public class FlagNode
     {
         [XmlAttribute("name")]
         public string Name { get; set; }

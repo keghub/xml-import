@@ -3,7 +3,7 @@
 namespace EMG.XML
 {
     [XmlType("Location", Namespace = "http://educations.com/XmlImport")]
-    public class Location
+    public class LocationNode
     {
         [XmlAttribute("uniqueIdentifier")]
         public string UniqueIdentifier { get; set; }
@@ -21,10 +21,10 @@ namespace EMG.XML
         public string Place { get; set; }
 
         [XmlElement("visitingAddress")]
-        public Address VisitingAddress { get; set; }
+        public AddressNode VisitingAddress { get; set; }
 
         [XmlElement("mailingAddress")]
-        public Address MailingAddress { get; set; }
+        public AddressNode MailingAddress { get; set; }
 
         [XmlElement("description")]
         public string Description { get; set; }
@@ -40,7 +40,7 @@ namespace EMG.XML
     }
 
     [XmlType("Address", Namespace = "http://educations.com/XmlImport")]
-    public class Address
+    public class AddressNode
     {
         [XmlAttribute("street")]
         public string Street { get; set; }

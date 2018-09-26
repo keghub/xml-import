@@ -9,7 +9,7 @@ namespace EMG.XML
     public class Import
     {
         [XmlElement("provider")]
-        public Provider[] Providers { get; set; }
+        public ProviderNode[] Providers { get; set; }
 
         [XmlAttribute("version")]
         public decimal Version { get; set; } = 3.0m;
