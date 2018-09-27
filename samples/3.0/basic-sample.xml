@@ -1,0 +1,52 @@
+<import xmlns="http://educations.com/XmlImport" version="3.0">
+  <provider uniqueIdentifier="provider-3823">
+    <locations>
+      <location uniqueIdentifier="stockholm" name="EMG HQ">
+        <visitingAddress city="Stockholm" street="Karlavägen 104" zip="115 26" country="Sweden" />
+        <place>Stockholm, Sweden</place>
+        <coordinates latitude="59.335811" longitude="18.098354" />
+      </location>
+      <location uniqueIdentifier="helsinki" name="EMG Finland">
+        <visitingAddress city="Helsinki" street="Fredrikinkatu 34" zip="00100" country="Finland"/>
+        <place>Helsinki, Finland</place>
+      </location>
+      <location uniqueIdentifier="mannheim" name="EMG Germany">
+        <visitingAddress city="Mannheim" country="Germany" street="P3 1-3" zip="68161" />
+        <place>Mannheim, Germany</place>
+      </location>
+      <location uniqueIdentifier="copenhagen" name="EMG Denmark">
+        <visitingAddress city="Copenhagen" country="Denmark" street="Rådhusstræde 6, 3 sal" zip="1466"/>
+        <place>Copenhagen, Denmark</place>
+      </location>
+      <location uniqueIdentifier="oslo" name="EMG Norway">
+        <visitingAddress city="Oslo" country="Norway" street="Tollbugata 8 A" zip="0152"/>
+        <place>Oslo, Norway</place>
+      </location>
+    </locations>
+    <courses>
+      <course uniqueIdentifier="course-1" name="First course" courseType="Course">
+        <events>
+          <event uniqueIdentifier="event-1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LocationEvent" locationUID="stockholm" deliveryMethod="Open class" language="English" />
+          <event uniqueIdentifier="event-2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="DistanceEvent" deliveryMethod="Online" language="English" />
+          <event uniqueIdentifier="event-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AreaEvent" place="Stockholm" deliveryMethod="In-house" language="English" />
+        </events>
+        <contentFields>
+          <field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="default" name="description">
+            <![CDATA[This is the description of the course. It accepts <i>HTML</i>.]]>
+          </field>
+          <field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="custom" name="Something else" isHtml="true">
+            <![CDATA[This is a custom text field that can be used to provide additional content. It can accept <i>HTML</i>.]]>
+          </field>
+        </contentFields>
+      </course>
+    </courses>
+    <contentFields>
+      <field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="providerDefault" name="description">
+        <![CDATA[This is the description of the provider. It accepts <i>HTML</i>.]]>
+      </field>
+      <field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="providerCustom" name="About EMG">
+        <![CDATA[Today, EMG is the market leader of education marketing and runs the world's biggest search engines for education and training. The Group works with 4,000 education providers in 40 countries and helps 2 million students find the right course for their needs among the 50,000 programs available each month.]]>
+      </field>
+    </contentFields>
+  </provider>
+</import>
