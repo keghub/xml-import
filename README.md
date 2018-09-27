@@ -12,6 +12,8 @@ The new format gives our partners the possibility to share more information with
 
 [Here you can see the complete schema for EMG XML 3.0](schemas/3.0)
 
+[Here you can see some samples for EMG XML 3.0](samples/3.0)
+
 ## EMG XML 2.0
 EMG XML 2.0, previously known as Studentum XML 2.0, is the earlier version of our XML schema.
 
@@ -20,6 +22,8 @@ It is currently considered obsolete and new partners should adopt the 3.0 versio
 [Here you can see the complete documentation for EMG XML 2.0](documentation/2.0)
 
 [Here you can see the complete schema for EMG XML 2.0](schemas/2.0)
+
+[Here you can see some samples for EMG XML 2.0](samples/2.0)
 
 ## SDKs
 Besides the schemas and the documentation for each format, this repository contains also the source code of libraries publicly available to help our partners generate XML documents matching our schemas.
