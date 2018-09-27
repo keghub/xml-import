@@ -182,13 +182,13 @@ namespace EMG.XML
 
         [XmlIgnore]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool CourseDurationUnitAttributeSpecified => Unit.HasValue;
+        public bool UnitAttributeSpecified => Unit.HasValue;
 
         [XmlAttribute("unit")]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public CourseDurationUnit UnitAttribute
         {
-            get => Unit.HasValue && CourseDurationUnitAttributeSpecified ? Unit.Value : default(CourseDurationUnit);
+            get => Unit.HasValue && UnitAttributeSpecified ? Unit.Value : default(CourseDurationUnit);
             set
             {
                 if (value == default(CourseDurationUnit))
