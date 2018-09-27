@@ -84,8 +84,10 @@ namespace EMG.XML
                 {
                     IsVatIncluded = null;
                 }
-
-                IsVatIncluded = value;
+                else
+                {
+                    IsVatIncluded = value;
+                }
             }
         }
 
@@ -107,8 +109,10 @@ namespace EMG.XML
                 {
                     Currency = null;
                 }
-
-                Currency = value;
+                else
+                {
+                    Currency = value;
+                }
             }
         }
 
@@ -167,8 +171,10 @@ namespace EMG.XML
                 {
                     StartDate = null;
                 }
-
-                StartDate = value;
+                else
+                {
+                    StartDate = value;
+                }
             }
         }
 
