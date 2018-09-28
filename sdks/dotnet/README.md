@@ -1,7 +1,17 @@
 # .NET Framework and .NET Core SDK
 Here you can find the source code for the SDK available for .NET Framework and .NET Core.
 
+## Packages
 The SDK is composed by different NuGet packages that can be used to generate correct XML documents matching with the supported schemas.
+
+### EMG.XML.Types
+The [EMG.XML.Types](https://www.nuget.org/packages/EMG.XML.Types/) package contains a set of classes to be used with the `XmlSerializer` provided in the .NET Framework and .NET Core base class library.
+
+You can download this package from NuGet.
+* [`2.1.0.0-preview`](https://www.nuget.org/packages/EMG.XML.Types/2.1.0-preview) to create EMG XML 2.0 feeds
+* [`3.1.0.0-preview`](https://www.nuget.org/packages/EMG.XML.Types/3.1.0-preview) to create EMG XML 3.0 feeds
+
+See below for which version to use.
 
 ## Versioning
 To properly support both EMG XML 2.0 and EMG XML 3.0, the packages use a 4 part versioning scheme following the pattern of `w.x.y.z`.
