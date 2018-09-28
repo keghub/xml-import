@@ -13,8 +13,8 @@ namespace EMG.XML
         [XmlAttribute("uniqueIdentifier")]
         public string UniqueIdentifier { get; set; }
 
-        [XmlAttribute("deliveryMethod")]
-        public string DeliveryMethod { get; set; }
+        [XmlAttribute("eventTypeID")]
+        public int EventTypeID { get; set; }
 
         [XmlAttribute("language")]
         public Language Language { get; set; }

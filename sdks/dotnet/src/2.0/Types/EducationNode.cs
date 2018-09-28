@@ -21,6 +21,10 @@ namespace EMG.XML
         [XmlArrayItem("field")]
         public ContentField[] ContentFields { get; set; }
 
+        [XmlArray("events")]
+        [XmlArrayItem("event")]
+        public EventNode[] Events { get; set; }
+
         [XmlArray("keywords")]
         [XmlArrayItem("keyword")]
         public string[] Keywords { get; set; }
