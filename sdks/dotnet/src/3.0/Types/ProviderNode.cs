@@ -22,13 +22,13 @@ namespace EMG.XML
 
         [XmlArray("contentFields")]
         [XmlArrayItem("field")]
-        public ProviderTextProperty[] ContentFields { get; set; }
+        public ProviderContentField[] ContentFields { get; set; }
     }
 
     [XmlType("ProviderTextProperty", Namespace = "http://educations.com/XmlImport")]
-    [XmlInclude(typeof(ProviderDefaultTextProperty))]
-    [XmlInclude(typeof(ProviderCustomTextProperty))]
-    public abstract class ProviderTextProperty
+    [XmlInclude(typeof(DefaultProviderContentField))]
+    [XmlInclude(typeof(CustomProviderContentField))]
+    public abstract class ProviderContentField
     {
         [XmlIgnore]
         public string Content { get; set; }
@@ -57,20 +57,20 @@ namespace EMG.XML
     }
 
     [XmlType("providerDefault", Namespace = "http://educations.com/XmlImport")]
-    public class ProviderDefaultTextProperty : ProviderTextProperty
+    public class DefaultProviderContentField : ProviderContentField
     {
         [XmlAttribute("name")]
-        public ProviderDefaultTextPropertyKey Name { get; set; }
+        public DefaultProviderContentFieldKey Name { get; set; }
     }
 
     [XmlType("ProviderDefaultTextPropertyKey", Namespace = "http://educations.com/XmlImport")]
-    public enum ProviderDefaultTextPropertyKey
+    public enum DefaultProviderContentFieldKey
     {
         [XmlEnum("description")] Description
     }
 
     [XmlType("providerCustom", Namespace = "http://educations.com/XmlImport")]
-    public class ProviderCustomTextProperty : ProviderTextProperty
+    public class CustomProviderContentField : ProviderContentField
     {
         [XmlAttribute("name")]
         public string Name { get; set; }

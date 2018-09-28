@@ -19,7 +19,7 @@ namespace EMG.XML
 
         [XmlArray("contentFields")]
         [XmlArrayItem("field")]
-        public CourseTextProperty[] ContentFields { get; set; }
+        public CourseContentField[] ContentFields { get; set; }
 
         [XmlArray("events")]
         [XmlArrayItem("event")]
@@ -221,9 +221,9 @@ namespace EMG.XML
     }
 
     [XmlType("CourseTextProperty", Namespace = "http://educations.com/XmlImport")]
-    [XmlInclude(typeof(CourseDefaultTextProperty))]
-    [XmlInclude(typeof(CourseCustomTextProperty))]
-    public abstract class CourseTextProperty
+    [XmlInclude(typeof(DefaultCourseContentField))]
+    [XmlInclude(typeof(CustomCourseContentField))]
+    public abstract class CourseContentField
     {
         [XmlIgnore]
         public string Content { get; set; }
@@ -251,14 +251,14 @@ namespace EMG.XML
     }
 
     [XmlType("default", Namespace = "http://educations.com/XmlImport")]
-    public class CourseDefaultTextProperty : CourseTextProperty
+    public class DefaultCourseContentField : CourseContentField
     {
         [XmlAttribute("name")]
-        public CourseDefaultTextPropertyKey Name { get; set; }
+        public DefaultCourseContentFieldKey Name { get; set; }
     }
 
     [XmlType("CourseDefaultTextPropertyKey", Namespace = "http://educations.com/XmlImport")]
-    public enum CourseDefaultTextPropertyKey
+    public enum DefaultCourseContentFieldKey
     {
         [XmlEnum("description")] Description,
 
@@ -278,7 +278,7 @@ namespace EMG.XML
     }
 
     [XmlType("custom", Namespace = "http://educations.com/XmlImport")]
-    public class CourseCustomTextProperty : CourseTextProperty
+    public class CustomCourseContentField : CourseContentField
     {
         [XmlAttribute("name")]
         public string Name { get; set; }
