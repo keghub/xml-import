@@ -24,7 +24,7 @@ namespace EMG.XML
 
         [XmlElement("pace")]
         [DefaultValue(100)]
-        public decimal Pace { get; set; }
+        public decimal Pace { get; set; } = 100m;
 
         [XmlElement("price")]
         public PriceNode Price { get; set; }
@@ -229,7 +229,7 @@ namespace EMG.XML
     [XmlType("EventApplication", Namespace = "http://educations.com/XmlImport")]
     public class EventApplicationNode
     {
-        [XmlAttribute("url")]
+        [XmlAttribute("url", DataType = "anyURI")]
         public string Url { get; set; }
 
         [XmlAttribute("applicationCode")]

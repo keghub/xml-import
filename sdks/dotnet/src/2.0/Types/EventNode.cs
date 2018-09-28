@@ -16,15 +16,35 @@ namespace EMG.XML
         [XmlAttribute("eventTypeID")]
         public int EventTypeID { get; set; }
 
-        [XmlAttribute("language")]
-        public Language Language { get; set; }
+        [XmlIgnore]
+        public Language? Language { get; set; }
 
-        [XmlAttribute("link")]
+        [XmlAttribute("language")]
+        public Language LanguageAttribute
+        {
+            get => Language.HasValue && LanguageAttributeSpecified ? Language.Value : default(Language);
+            set
+            {
+                if (value == default(Language))
+                {
+                    Language = null;
+                }
+                else
+                {
+                    Language = value;
+                }
+            }
+        }
+
+        [XmlIgnore]
+        public bool LanguageAttributeSpecified => Language.HasValue;
+
+        [XmlAttribute("link", DataType = "anyURI")]
         public string Link { get; set; }
 
         [XmlElement("pace")]
         [DefaultValue(100)]
-        public decimal Pace { get; set; }
+        public decimal Pace { get; set; } = 100m;
 
         [XmlElement("price")]
         public PriceNode Price { get; set; }
@@ -67,7 +87,7 @@ namespace EMG.XML
     [XmlType("EventApplication", Namespace = "http://educations.com/XmlImport")]
     public class EventApplicationNode
     {
-        [XmlAttribute("url")]
+        [XmlAttribute("url", DataType = "anyURI")]
         public string Url { get; set; }
 
         [XmlAttribute("applicationCode")]
