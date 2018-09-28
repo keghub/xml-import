@@ -150,7 +150,7 @@ namespace EMG.XML
     [XmlType("Application", Namespace = "http://educations.com/XmlImport")]
     public class EducationApplicationNode
     {
-        [XmlAttribute("url")]
+        [XmlAttribute("url", DataType = "anyURI")]
         public string Url { get; set; }
 
         [XmlIgnore]
