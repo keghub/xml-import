@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.3;netstandard2.0;net40</TargetFrameworks>
+    <RootNamespace>EMG.XML</RootNamespace>
+    <PackageId>EMG.XML.Types</PackageId>
+    <PackageVersion>2.1.0.0-preview</PackageVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Authors>EMG</Authors>
+    <PackageProjectUrl>https://github.com/emgdev/xml-import</PackageProjectUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/emgdev/xml-import/master/LICENSE</PackageLicenseUrl>
+    <Description>An helper library to quickly XML feeds conformant to the EMG XML 2.0 schema</Description>
+    <PackageTags>dotnet-core csharp dotnet dotnet-standard xml emg educations-media-group</PackageTags>
+    <PackageIconUrl>http://static.emg-services.net/masterpages/pics/logos/emg-icon-64.png</PackageIconUrl>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.3'">
+    <PackageReference Include="System.Xml.XmlSerializer" Version="4.3.0" />
+    <PackageReference Include="System.Runtime.Serialization.Formatters" Version="4.3.0" />
+    <PackageReference Include="System.ComponentModel" Version="4.3.0" />
+    <PackageReference Include="System.ComponentModel.Primitives" Version="4.3.0" />
+    <PackageReference Include="System.Xml.XmlDocument" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>

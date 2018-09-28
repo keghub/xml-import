@@ -1,7 +1,7 @@
 # Educations Media Group XML schemas
 This repository contains the schema and the relevant documentation to create feeds to easily import big amount of data.
 
-Currently we support the following standards out-of-the-box.
+Currently we support the following schemas out-of-the-box.
 
 ## EMG XML 3.0
 EMG XML 3.0 is the latest version of our XML schema.
@@ -24,3 +24,9 @@ It is currently considered obsolete and new partners should adopt the 3.0 versio
 [Here you can see the complete schema for EMG XML 2.0](schemas/2.0)
 
 [Here you can see some samples for EMG XML 2.0](samples/2.0)
+
+## SDKs
+Besides the schemas and the documentation for each format, this repository contains also the source code of libraries publicly available to help our partners generate XML documents matching our schemas.
+
+Here is a list of supported platforms
+- [.NET Framework and .NET Core](./sdks/dotnet)
