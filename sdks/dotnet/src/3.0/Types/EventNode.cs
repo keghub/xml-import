@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
 namespace EMG.XML
@@ -15,15 +16,38 @@ namespace EMG.XML
 
         [XmlAttribute("deliveryMethod")]
         public string DeliveryMethod { get; set; }
+        
+        [XmlIgnore]
+        public Language? Language { get; set; }
 
         [XmlAttribute("language")]
-        public Language Language { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Language LanguageField
+        {
+            get => Language.HasValue && LanguageFieldSpecified ? Language.Value : default(Language);
+            set
+            {
+                if (value == default(Language))
+                {
+                    Language = null;
+                }
+                else
+                {
+                    Language = value;
+                }
+            }
+        }
+
+        [XmlIgnore]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool LanguageFieldSpecified => Language.HasValue;
 
         [XmlAttribute("link")]
         public string Link { get; set; }
 
         [XmlElement("pace")]
         [DefaultValue(100)]
+        [Range(0, 100)]
         public decimal Pace { get; set; } = 100m;
 
         [XmlElement("price")]
@@ -94,6 +118,32 @@ namespace EMG.XML
         [XmlIgnore]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool IsVatIncludedFieldSpecified => IsVatIncluded.HasValue;
+
+        [XmlIgnore]
+        [Range(0, 100)]
+        public decimal? VAT { get; set; }
+
+        [XmlAttribute("vat")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public decimal VATField
+        {
+            get => VATFieldSpecified && VAT.HasValue ? VAT.Value : default(decimal);
+            set
+            {
+                if (value == default(decimal))
+                {
+                    VAT = null;
+                }
+                else
+                {
+                    VAT = value;
+                }
+            }
+        }
+
+        [XmlIgnore]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool VATFieldSpecified => VAT.HasValue;
 
         [XmlIgnore]
         public Currency? Currency { get; set; }
@@ -209,6 +259,7 @@ namespace EMG.XML
     public class DiscountRateNode : DiscountNode
     {
         [XmlAttribute("percentage")]
+        [Range(0, 100)]
         public decimal Percentage { get; set; }
     }
 
@@ -229,10 +280,19 @@ namespace EMG.XML
     [XmlType("EventApplication", Namespace = "http://educations.com/XmlImport")]
     public class EventApplicationNode
     {
+        [XmlIgnore]
+        public Uri Url { get; set; }
+
         [XmlAttribute("url", DataType = "anyURI")]
-        public string Url { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public string UrlField
+        {
+            get => Url.ToString();
+            set => Url = value == null ? null : new Uri(value);
+        }
 
         [XmlAttribute("applicationCode")]
+        [StringLength(64)]
         public string ApplicationCode { get; set; }
 
         [XmlIgnore]
@@ -290,6 +350,7 @@ namespace EMG.XML
     public class AdditionalInfoItem
     {
         [XmlAttribute("key")]
+        [StringLength(32)]
         public string Key { get; set; }
 
         [XmlText]
@@ -300,6 +361,7 @@ namespace EMG.XML
     public class FlagNode
     {
         [XmlAttribute("name")]
+        [StringLength(32)]
         public string Name { get; set; }
 
         [XmlIgnore]

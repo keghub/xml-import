@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace EMG.XML
 {
@@ -11,11 +12,55 @@ namespace EMG.XML
         [XmlAttribute("name")]
         public string Name { get; set; }
 
-        [XmlAttribute("hasAccomodation")]
-        public bool HasAccommodation { get; set; }
+        [XmlIgnore]
+        public bool? HasAccommodation { get; set; }
 
-        [XmlAttribute("IsFoodProvided")]
-        public bool IsFoodProvided { get; set; }
+        [XmlAttribute("hasAccomodation")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool HasAccommodationField
+        {
+            get => HasAccommodation.HasValue && HasAccommodationFieldSpecified && HasAccommodation.Value;
+            set
+            {
+                if (value == default(bool))
+                {
+                    HasAccommodation = null;
+                }
+                else
+                {
+                    HasAccommodation = true;
+                }
+            }
+        }
+
+        [XmlIgnore]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool HasAccommodationFieldSpecified => HasAccommodation.HasValue;
+        
+        [XmlIgnore]
+        public bool? IsFoodProvided { get; set; }
+
+        [XmlAttribute("isFoodProvided")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool IsFoodProvidedField
+        {
+            get => IsFoodProvided.HasValue && IsFoodProvidedFieldSpecified && IsFoodProvided.Value;
+            set
+            {
+                if (value == default(bool))
+                {
+                    IsFoodProvided = null;
+                }
+                else
+                {
+                    IsFoodProvided = true;
+                }
+            }
+        }
+
+        [XmlIgnore]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool IsFoodProvidedFieldSpecified => IsFoodProvided.HasValue;
 
         [XmlElement("place")]
         public string Place { get; set; }
@@ -23,8 +68,8 @@ namespace EMG.XML
         [XmlElement("visitingAddress")]
         public AddressNode VisitingAddress { get; set; }
 
-        [XmlElement("mailingAddress")]
-        public AddressNode MailingAddress { get; set; }
+        [XmlElement("mailAddress")]
+        public AddressNode MailAddress { get; set; }
 
         [XmlElement("description")]
         public string Description { get; set; }

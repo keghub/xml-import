@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Xml;
 using System.Xml.Linq;
+using System.Xml.Schema;
 using System.Xml.Serialization;
+using NUnit.Framework;
 
 namespace TestHelper
 {
@@ -12,7 +15,6 @@ namespace TestHelper
 
         public static readonly IEqualityComparer<DateTime> DateEqualityComparer = new DateEqualityComparer();
         public static readonly IEqualityComparer<DateTime> TimeEqualityComparer = new TimeEqualityComparer();
-
 
         public static string ToXmlString<T>(this T obj)
         {
@@ -62,64 +64,20 @@ namespace TestHelper
 
         public static T RoundTrip<T>(this T obj)
         {
-            return FromXml<T>(obj.ToXml());
+            return FromXml<T>(ToXml(obj));
         }
-    }
 
-    public class TimeEqualityComparer : IEqualityComparer<DateTime>, IEqualityComparer<DateTime?>
-    {
-        public bool Equals(DateTime x, DateTime y)
+
+        public static void ValidateDocument(this XmlSchemaSet schema, XDocument document)
         {
-            return x.Hour == y.Hour && x.Minute == y.Minute && x.Second == y.Second && x.Millisecond == y.Millisecond;
+            var errors = new List<Exception>();
+           
+            document.Validate(schema, (o, e) => { errors.Add(e.Exception); });
+
+            if (errors.Count > 0)
+            {
+                throw new AggregateException("An error occurred while validating the document", errors);
+            }
         }
-
-        public int GetHashCode(DateTime obj)
-        {
-            return obj.Hour.GetHashCode() ^ obj.Minute.GetHashCode() ^ obj.Second.GetHashCode() ^ obj.Millisecond.GetHashCode();
-        }
-
-        public bool Equals(DateTime? x, DateTime? y)
-        {
-            if (x.HasValue != y.HasValue)
-                return false;
-
-            return !x.HasValue || Equals(x.Value, y.Value);
-        }
-
-        public int GetHashCode(DateTime? obj)
-        {
-            if (!obj.HasValue) return default(DateTime?).GetHashCode();
-
-            return obj.Value.GetHashCode();
-        }
-    }
-
-    public class DateEqualityComparer : IEqualityComparer<DateTime>, IEqualityComparer<DateTime?>
-    {
-        public bool Equals(DateTime x, DateTime y)
-        {
-            return x.Year == y.Year && x.Month == y.Month && x.Day == y.Day;
-        }
-
-        public int GetHashCode(DateTime obj)
-        {
-            return obj.Year.GetHashCode() ^ obj.Month.GetHashCode() ^ obj.Day.GetHashCode();
-        }
-
-        public bool Equals(DateTime? x, DateTime? y)
-        {
-            if (x.HasValue != y.HasValue)
-                return false;
-
-            return !x.HasValue || Equals(x.Value, y.Value);
-        }
-
-        public int GetHashCode(DateTime? obj)
-        {
-            if (!obj.HasValue) return default(DateTime?).GetHashCode();
-
-            return obj.Value.GetHashCode();
-        }
-
     }
 }
