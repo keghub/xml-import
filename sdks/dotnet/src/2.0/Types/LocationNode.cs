@@ -14,7 +14,7 @@ namespace EMG.XML
         [XmlAttribute("hasAccomodation")]
         public bool HasAccommodation { get; set; }
 
-        [XmlAttribute("IsFoodProvided")]
+        [XmlAttribute("isFoodProvided")]
         public bool IsFoodProvided { get; set; }
 
         [XmlElement("place")]
@@ -23,8 +23,8 @@ namespace EMG.XML
         [XmlElement("visitingAddress")]
         public AddressNode VisitingAddress { get; set; }
 
-        [XmlElement("mailingAddress")]
-        public AddressNode MailingAddress { get; set; }
+        [XmlElement("mailAddress")]
+        public AddressNode MailAddress { get; set; }
 
         [XmlElement("description")]
         public string Description { get; set; }

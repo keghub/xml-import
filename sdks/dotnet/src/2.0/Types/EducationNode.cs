@@ -31,11 +31,11 @@ namespace EMG.XML
 
         [XmlArray("categories")]
         [XmlArrayItem("category")]
-        public string[] Categories { get; set; }
+        public NamedNode[] Categories { get; set; }
 
         [XmlArray("grantedCertificates")]
         [XmlArrayItem("certificate")]
-        public string[] GrantedCertificates { get; set; }
+        public NamedNode[] GrantedCertificates { get; set; }
 
         [XmlElement("link", DataType = "anyURI")]
         public string Link { get; set; }
@@ -145,6 +145,15 @@ namespace EMG.XML
         [XmlAttribute("isHtml")]
         [DefaultValue(false)]
         public bool IsHtml { get; set; } = false;
+    }
+
+    [XmlType(AnonymousType = true, Namespace = "http://educations.com/XmlImport")]
+    public class NamedNode
+    {
+        [XmlAttribute("name")]
+        public string Name { get; set; }
+
+        public static implicit operator NamedNode(string name) => new NamedNode { Name = name };
     }
 
     [XmlType("Application", Namespace = "http://educations.com/XmlImport")]

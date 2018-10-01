@@ -1,6 +1,5 @@
 #addin "Cake.ExtendedNuGet"
 #addin "nuget:?package=NuGet.Core"
-#tool "nuget:?package=JetBrains.dotCover.CommandLineTools"
 
 var target = Argument("Target", "Test");
 
@@ -9,8 +8,6 @@ FilePath SolutionFile = MakeAbsolute(File("EMG.XML.sln"));
 var testFolder = SolutionFile.GetDirectory().Combine("tests");
 var outputFolder = SolutionFile.GetDirectory().Combine("outputs");
 var testOutputFolder = outputFolder.Combine("tests");
-var coverageOutputFile = testOutputFolder.CombineWithFilePath("coverage.dcvr");
-var dotCoverFolder = MakeAbsolute(Context.Tools.Resolve("dotcover.exe").GetDirect‌​ory());
 
 Setup(context => 
 {
@@ -39,7 +36,32 @@ Task("Test")
     .IsDependentOn("Build")
     .Does(() => 
 {
-    Information("Skipped for lack of tests");
+    Information($"Looking for test projects in {testFolder.FullPath}");
+
+    var testProjects = GetFiles($"{testFolder}/**/*.csproj").Where(p => !p.FullPath.Contains("Helper"));
+
+    foreach (var project in testProjects)
+    {
+        Information($"Testing {project.FullPath}");
+
+        var testResultFile = testOutputFolder.CombineWithFilePath(project.GetFilenameWithoutExtension() + ".trx");
+        
+        Verbose($"Saving test results on {testResultFile.FullPath}");
+
+        var settings = new DotNetCoreTestSettings
+        {
+            NoBuild = true,
+            NoRestore = true,
+            Logger = $"trx;LogFileName={testResultFile.FullPath}"
+        };
+
+        DotNetCoreTest(project.FullPath, settings);
+
+        if (BuildSystem.IsRunningOnTeamCity)
+        {
+            TeamCity.ImportData("mstest", testResultFile);
+        }
+    }
 });
 
 Task("Pack")
