@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
 namespace EMG.XML
@@ -44,6 +45,7 @@ namespace EMG.XML
 
         [XmlElement("pace")]
         [DefaultValue(100)]
+        [Range(0, 100)]
         public decimal Pace { get; set; } = 100m;
 
         [XmlElement("price")]
@@ -61,10 +63,6 @@ namespace EMG.XML
 
         [XmlElement("start")]
         public EventStartInfoNode StartInfo { get; set; }
-
-        [XmlArray("flags")]
-        [XmlArrayItem("flag")]
-        public FlagNode[] Flags { get; set; }
     }
 
     [XmlType("LocationEvent", Namespace = "http://educations.com/XmlImport")]
@@ -87,8 +85,16 @@ namespace EMG.XML
     [XmlType("EventApplication", Namespace = "http://educations.com/XmlImport")]
     public class EventApplicationNode
     {
+        [XmlIgnore]
+        public Uri Url { get; set; }
+
         [XmlAttribute("url", DataType = "anyURI")]
-        public string Url { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public string UrlField
+        {
+            get => Url.ToString();
+            set => Url = value == null ? null : new Uri(value);
+        }
 
         [XmlAttribute("applicationCode")]
         public string ApplicationCode { get; set; }
@@ -148,67 +154,11 @@ namespace EMG.XML
     public class AdditionalInfoItem
     {
         [XmlAttribute("key")]
+        [StringLength(32)]
         public string Key { get; set; }
 
         [XmlText]
         public string Value { get; set; }
-    }
-
-    [XmlType(AnonymousType = true, Namespace = "http://educations.com/XmlImport")]
-    public class FlagNode
-    {
-        [XmlAttribute("name")]
-        public string Name { get; set; }
-
-        [XmlIgnore]
-        public DateTime? StartDate { get; set; }
-
-        [XmlIgnore]
-        public DateTime? EndDate { get; set; }
-
-        [XmlAttribute("startDate", DataType = "date")]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public DateTime StartDateField
-        {
-            get => StartDateFieldSpecified && StartDate.HasValue ? StartDate.Value : default(DateTime);
-            set
-            {
-                if (value == default(DateTime))
-                {
-                    StartDate = null;
-                }
-                else
-                {
-                    StartDate = value;
-                }
-            }
-        }
-
-        [XmlAttribute("endDate", DataType = "date")]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public DateTime EndDateField
-        {
-            get => EndDateFieldSpecified && EndDate.HasValue ? EndDate.Value : default(DateTime);
-            set
-            {
-                if (value == default(DateTime))
-                {
-                    EndDate = null;
-                }
-                else
-                {
-                    EndDate = value;
-                }
-            }
-        }
-
-        [XmlIgnore]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool StartDateFieldSpecified => StartDate.HasValue;
-
-        [XmlIgnore]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool EndDateFieldSpecified => EndDate.HasValue;
     }
 
     [XmlType(AnonymousType = true, Namespace = "http://educations.com/XmlImport")]

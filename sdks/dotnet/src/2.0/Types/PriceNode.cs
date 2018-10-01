@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
 namespace EMG.XML {
@@ -32,6 +33,32 @@ namespace EMG.XML {
         [XmlIgnore]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool IsVatIncludedFieldSpecified => IsVatIncluded.HasValue;
+
+        [XmlIgnore]
+        [Range(0, 100)]
+        public decimal? VAT { get; set; }
+
+        [XmlAttribute("vat")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public decimal VATField
+        {
+            get => VATFieldSpecified && VAT.HasValue ? VAT.Value : default(decimal);
+            set
+            {
+                if (value == default(decimal))
+                {
+                    VAT = null;
+                }
+                else
+                {
+                    VAT = value;
+                }
+            }
+        }
+
+        [XmlIgnore]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool VATFieldSpecified => VAT.HasValue;
 
         [XmlIgnore]
         public Currency? Currency { get; set; }
