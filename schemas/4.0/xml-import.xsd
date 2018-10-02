@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://educations.com/XmlImport"
+    elementFormDefault="qualified"
+    xmlns="http://educations.com/XmlImport"
+    xmlns:xi="http://educations.com/XmlImport"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:include schemaLocation="provider.xsd" />
+  <xs:include schemaLocation="course.xsd" />
+  <xs:include schemaLocation="event.xsd" />
+  <xs:include schemaLocation="event-start-info.xsd" />
+  <xs:include schemaLocation="location.xsd" />
+  <xs:include schemaLocation="course-text-property.xsd" />
+  <xs:include schemaLocation="provider-text-property.xsd" />
+  <xs:include schemaLocation="information-request.xsd" />
+
+  <xs:element name="import">
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="unbounded">
+        <xs:element name="provider" type="Provider">
+          <xs:key name="key-location">
+            <xs:selector xpath="xi:locations/xi:location" />
+            <xs:field xpath="@uniqueIdentifier" />
+          </xs:key>
+          <xs:keyref name="fk-mainLocation" refer="key-location">
+            <xs:selector xpath="." />
+            <xs:field xpath="@mainLocation" />
+          </xs:keyref>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:decimal" fixed="3.0" use="required" />
+    </xs:complexType>
+    <xs:key name="key-provider">
+      <xs:selector xpath="xi:provider" />
+      <xs:field xpath="@uniqueIdentifier" />
+    </xs:key>
+    <xs:unique name="unique-provider-id">
+      <xs:selector xpath="xi:provider" />
+      <xs:field xpath="@uniqueIdentifier" />
+    </xs:unique>
+  </xs:element>
+    
+  <xs:complexType name="KeywordList">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="keyword">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="64" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SynonymList">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="synonym" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
