@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <RootNamespace>Tests</RootNamespace>
+    <RootNamespace>Tests.EMG20</RootNamespace>
     <IsPackable>false</IsPackable>
     <AssemblyName>Tests.Types.EMG20</AssemblyName>
   </PropertyGroup>
