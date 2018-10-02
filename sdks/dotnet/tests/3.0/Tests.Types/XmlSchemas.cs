@@ -1,6 +1,6 @@
 ﻿using System.Xml.Schema;
 
-namespace Tests
+namespace Tests.EMG30
 {
     public static class XmlSchemas
     {

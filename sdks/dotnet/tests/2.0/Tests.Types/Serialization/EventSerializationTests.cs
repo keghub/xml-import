@@ -6,7 +6,7 @@ using EMG.XML;
 using NUnit.Framework;
 using TestHelper;
 
-namespace Tests.Serialization
+namespace Tests.EMG20.Serialization
 {
     [TestFixture]
     public class EventSerializationTests
