@@ -2,6 +2,7 @@
 using System.Xml;
 using System.Xml.Schema;
 using NUnit.Framework;
+using Tests.EMG30;
 
 // ReSharper disable CheckNamespace
 
