@@ -7,18 +7,17 @@
 >
   <xs:complexType name="Location">
     <xs:all>
-      <xs:element name="place"  minOccurs="1" maxOccurs="1">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:maxLength value="128" />
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
+
       <xs:element name="visitingAddress" type="Address" minOccurs="0" maxOccurs="1" />
+    
       <xs:element name="mailAddress" type="Address" minOccurs="0" maxOccurs="1" />
+    
       <xs:element name="coordinates" type="Coordinates" minOccurs="0" maxOccurs="1" />
+    
       <xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1" />
+     
       <xs:element name="residentialInformation" type="xs:string" minOccurs="0" maxOccurs="1" />
+     
       <xs:element name="contacts" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:attribute name="telephone" use="optional">
@@ -36,7 +35,9 @@
             </xs:simpleType>
           </xs:attribute>
         </xs:complexType>
+     
       </xs:element>
+    
     </xs:all>
     
     <xs:attribute name="name" use="required">
@@ -46,6 +47,7 @@
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
+
     <xs:attribute name="uniqueIdentifier" use="required">
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -53,8 +55,19 @@
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
+    
+    <xs:attribute name="place" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="128" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    
     <xs:attribute name="hasAccomodation" type="xs:boolean" use="optional" />
+    
     <xs:attribute name="isFoodProvided" type="xs:boolean" use="optional" />
+  
   </xs:complexType>
 
   <xs:complexType name="Address">

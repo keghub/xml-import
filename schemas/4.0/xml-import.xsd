@@ -28,7 +28,7 @@
           </xs:keyref>
         </xs:element>
       </xs:sequence>
-      <xs:attribute name="version" type="xs:decimal" fixed="3.0" use="required" />
+      <xs:attribute name="version" type="xs:decimal" fixed="4.0" use="required" />
     </xs:complexType>
     <xs:key name="key-provider">
       <xs:selector xpath="xi:provider" />
@@ -54,7 +54,51 @@
 
   <xs:complexType name="SynonymList">
     <xs:sequence minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="synonym" type="xs:string"/>
+      <xs:element name="synonym">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="64" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="FlagList">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="flag">
+        <xs:complexType>
+          <xs:attribute name="name" use="required">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="32"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="startDate" type="xs:date" use="optional" />
+          <xs:attribute name="endDate" type="xs:date" use="optional" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AdditionalInfo">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="item">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="key" use="required">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:attribute>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
