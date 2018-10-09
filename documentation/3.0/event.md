@@ -152,7 +152,7 @@ The schema supports additional optional nodes to cover some corner cases.
 
 [`<applicationInfo />`](../../schemas/3.0/event.xsd#L173-L190) is used to enable the deep linking into some application systems. It requires an URL and an application code. Additionally, it supports the possibility to make the link available only during a set period of time.
 
-[`<lastApplicationDate />`](../../schemas/3.0/event.xsd#L27-L34) is used to display information about the last available date to apply to the event. Its content can either be a date or a descriptive text.
+[`<lastApplicationDate />`](../../schemas/3.0/event.xsd#L27-L34) is used to display information about the last available date to apply to the event. Its content can either be an element `<date />` containing the date or an element `<text />` containing a descriptive text.
 
 The [`<flags />`](../../schemas/3.0/event.xsd#L118-L134) node is used to provide a list of boolean flags. The information must be handled ad-hoc so please use this element only after consulting with your account manager.
 
