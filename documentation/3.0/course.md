@@ -71,7 +71,7 @@ Here is an example of a custom field containing HTML text
 The [`<events />`](../../schemas/3.0/course.xsd#L23-L37) node contains a list of events. [Here you can find information about the events](event.md).
 
 ### Keywords
-The [`<keywords />`](../../schemas/3.0/course.xsd#L39) node contains a list of keywords relevant to the course. Each keyword must be unique.
+The [`<keywords />`](../../schemas/3.0/course.xsd#L39) node contains a list of keywords relevant to the course. Each keyword can be up to 64 characters long.
 
 ```xml
 <keywords>
@@ -88,9 +88,9 @@ The [`<categories />`](../../schemas/3.0/course.xsd#L41) node contains a list of
 
 ```xml
 <categories>
-  <category>First category</category>
-  <category>Second category</category>
-  <category>Third category</category>
+  <category name="First category" />
+  <category name="Second category" />
+  <category name="Third category" />
 <categories>
 ```
 Please note that categories are a sorted set. The first category is considered more important than the others.
@@ -102,9 +102,9 @@ The [`<grantedCertificates />`](../../schemas/3.0/course.xsd#L43) node contains 
 
 ```xml
 <certificates>
-  <certificate>First certificate</certificate>
-  <certificate>Second certificate</certificate>
-  <certificate>Third certificate</certificate>
+  <certificate name="First certificate" />
+  <certificate name="Second certificate" />
+  <certificate name="Third certificate" />
 <certificates>
 ```
 
