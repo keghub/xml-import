@@ -89,9 +89,9 @@ The [`<categories />`](../../schemas/2.0/education.xsd#L46-L51) node contains a 
 
 ```xml
 <categories>
-  <category>First category</category>
-  <category>Second category</category>
-  <category>Third category</category>
+  <category name="First category" />
+  <category name="Second category" />
+  <category name="Third category" />
 <categories>
 ```
 Please note that categories are a sorted set. The first category is considered more important than the others.
@@ -103,9 +103,9 @@ The [`<grantedCertificates />`](../../schemas/2.0/education.xsd#L53-L58) node co
 
 ```xml
 <certificates>
-  <certificate>First certificate</certificate>
-  <certificate>Second certificate</certificate>
-  <certificate>Third certificate</certificate>
+  <certificate name="First certificate" />
+  <certificate name="Second certificate" />
+  <certificate name="Third certificate" />
 <certificates>
 ```
 
