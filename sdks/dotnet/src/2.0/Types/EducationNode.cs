@@ -159,8 +159,16 @@ namespace EMG.XML
     [XmlType("Application", Namespace = "http://educations.com/XmlImport")]
     public class EducationApplicationNode
     {
+        [XmlIgnore]
+        public Uri Url { get; set; }
+
         [XmlAttribute("url", DataType = "anyURI")]
-        public string Url { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public string UrlField
+        {
+            get => Url.ToString();
+            set => Url = value == null ? null : new Uri(value);
+        }
 
         [XmlIgnore]
         public DateTime? StartDate { get; set; }
