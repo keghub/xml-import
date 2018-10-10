@@ -371,5 +371,112 @@ namespace Tests.EMG30.Serialization
 
             Console.Write(serialized);
         }
+
+        [Test]
+        public void Course_with_application_data_can_be_serialized()
+        {
+            fixture.Customize<CourseApplicationNode>(o => o.Without(p => p.UrlField));
+
+            fixture.Customize<CourseNode>(o => o
+                                               .OmitAutoProperties()
+                                               .With(p => p.UniqueIdentifier)
+                                               .With(p => p.Name)
+                                               .With(p => p.CourseType)
+                                               .With(p => p.Application)
+                                               .With(p => p.ContentFields, new CourseContentField[0])
+                                               .With(p => p.Events, new EventNode[0])
+            );
+
+            var import = fixture.Create<Import>();
+
+            var serialized = import.ToXml();
+
+            XmlSchemas.XmlImport.ValidateDocument(serialized);
+
+            Console.Write(serialized);
+        }
+
+        [Test]
+        public void Course_with_application_data_with_no_dates_can_be_serialized()
+        {
+            fixture.Customize<CourseApplicationNode>(o => o
+                                                          .OmitAutoProperties()
+                                                          .With(p => p.Url)
+            );
+
+            fixture.Customize<CourseNode>(o => o
+                                               .OmitAutoProperties()
+                                               .With(p => p.UniqueIdentifier)
+                                               .With(p => p.Name)
+                                               .With(p => p.CourseType)
+                                               .With(p => p.Application)
+                                               .With(p => p.ContentFields, new CourseContentField[0])
+                                               .With(p => p.Events, new EventNode[0])
+            );
+
+            var import = fixture.Create<Import>();
+
+            var serialized = import.ToXml();
+
+            XmlSchemas.XmlImport.ValidateDocument(serialized);
+
+            Console.Write(serialized);
+        }
+
+        [Test]
+        public void Course_with_application_data_with_start_date_can_be_serialized()
+        {
+            fixture.Customize<CourseApplicationNode>(o => o
+                                                          .OmitAutoProperties()
+                                                          .With(p => p.Url)
+                                                          .With(p => p.StartDate)
+            );
+
+            fixture.Customize<CourseNode>(o => o
+                                               .OmitAutoProperties()
+                                               .With(p => p.UniqueIdentifier)
+                                               .With(p => p.Name)
+                                               .With(p => p.CourseType)
+                                               .With(p => p.Application)
+                                               .With(p => p.ContentFields, new CourseContentField[0])
+                                               .With(p => p.Events, new EventNode[0])
+            );
+
+            var import = fixture.Create<Import>();
+
+            var serialized = import.ToXml();
+
+            XmlSchemas.XmlImport.ValidateDocument(serialized);
+
+            Console.Write(serialized);
+        }
+
+        [Test]
+        public void Course_with_application_data_with_end_date_can_be_serialized()
+        {
+            fixture.Customize<CourseApplicationNode>(o => o
+                                                          .OmitAutoProperties()
+                                                          .With(p => p.Url)
+                                                          .With(p => p.StartDate)
+            );
+
+            fixture.Customize<CourseNode>(o => o
+                                               .OmitAutoProperties()
+                                               .With(p => p.UniqueIdentifier)
+                                               .With(p => p.Name)
+                                               .With(p => p.CourseType)
+                                               .With(p => p.Application)
+                                               .With(p => p.ContentFields, new CourseContentField[0])
+                                               .With(p => p.Events, new EventNode[0])
+            );
+
+            var import = fixture.Create<Import>();
+
+            var serialized = import.ToXml();
+
+            XmlSchemas.XmlImport.ValidateDocument(serialized);
+
+            Console.Write(serialized);
+        }
     }
 }

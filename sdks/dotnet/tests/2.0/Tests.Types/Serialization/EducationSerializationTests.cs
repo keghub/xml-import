@@ -370,5 +370,88 @@ namespace Tests.EMG20.Serialization
 
             Console.Write(serialized);
         }
+
+        [Test]
+        public void Education_with_application_data_with_no_dates_can_be_serialized()
+        {
+            fixture.Customize<EducationApplicationNode>(o => o
+                                                          .OmitAutoProperties()
+                                                          .With(p => p.Url)
+            );
+
+            fixture.Customize<EducationNode>(o => o
+                                               .OmitAutoProperties()
+                                               .With(p => p.UniqueIdentifier)
+                                               .With(p => p.Name)
+                                               .With(p => p.EducationTypeID)
+                                               .With(p => p.Application)
+                                               .With(p => p.ContentFields, new ContentField[0])
+                                               .With(p => p.Events, new EventNode[0])
+            );
+
+            var import = fixture.Create<Import>();
+
+            var serialized = import.ToXml();
+
+            XmlSchemas.XmlImport.ValidateDocument(serialized);
+
+            Console.Write(serialized);
+        }
+
+        [Test]
+        public void Education_with_application_data_with_start_date_can_be_serialized()
+        {
+            fixture.Customize<EducationApplicationNode>(o => o
+                                                          .OmitAutoProperties()
+                                                          .With(p => p.Url)
+                                                          .With(p => p.StartDate)
+            );
+
+            fixture.Customize<EducationNode>(o => o
+                                               .OmitAutoProperties()
+                                               .With(p => p.UniqueIdentifier)
+                                               .With(p => p.Name)
+                                               .With(p => p.EducationTypeID)
+                                               .With(p => p.Application)
+                                               .With(p => p.ContentFields, new ContentField[0])
+                                               .With(p => p.Events, new EventNode[0])
+            );
+
+            var import = fixture.Create<Import>();
+
+            var serialized = import.ToXml();
+
+            XmlSchemas.XmlImport.ValidateDocument(serialized);
+
+            Console.Write(serialized);
+        }
+
+        [Test]
+        public void Education_with_application_data_with_end_date_can_be_serialized()
+        {
+            fixture.Customize<EducationApplicationNode>(o => o
+                                                          .OmitAutoProperties()
+                                                          .With(p => p.Url)
+                                                          .With(p => p.StartDate)
+            );
+
+            fixture.Customize<EducationNode>(o => o
+                                               .OmitAutoProperties()
+                                               .With(p => p.UniqueIdentifier)
+                                               .With(p => p.Name)
+                                               .With(p => p.EducationTypeID)
+                                               .With(p => p.Application)
+                                               .With(p => p.ContentFields, new ContentField[0])
+                                               .With(p => p.Events, new EventNode[0])
+            );
+
+            var import = fixture.Create<Import>();
+
+            var serialized = import.ToXml();
+
+            XmlSchemas.XmlImport.ValidateDocument(serialized);
+
+            Console.Write(serialized);
+        }
     }
 }
