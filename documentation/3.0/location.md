@@ -2,6 +2,8 @@
 
 A location represents the physical place where an [event](event.md) is held. An example could be the campuses of a university or the venue of a training course.
 
+You can find some examples [here](../../samples/3.0/location-sample.xml).
+
 ### Required fields
 
 The minmum information required for a valid `<location />` element is a unique identifier, a name and the name of the city where the location is placed.
