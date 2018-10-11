@@ -1,0 +1,37 @@
+<!-- An import feed can contain information about multiple providers. This is why each provider requires a unique identifier. Any value is ok. -->
+<import xmlns="http://educations.com/XmlImport" version="3.0">
+  <!-- 
+    This is the minimal valid provider node.
+    It contains a unique identifier, an empty set of courses and locations.
+  -->
+  <provider uniqueIdentifier="provider-01">
+    <courses />
+    <locations />
+  </provider>
+  
+  <!--
+    This is a provider with a description. The description can contain HTML tags.
+  -->
+  <provider uniqueIdentifier="provider-02">
+    <courses />
+    <locations />
+    <contentFields>
+      <field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="providerDefault" name="description">
+        <![CDATA[This is the description of the provider.]]>
+      </field>
+    </contentFields>
+  </provider>
+
+  <!--
+    This is a provider with a description. The description can contain HTML tags.
+  -->
+  <provider uniqueIdentifier="provider-03">
+    <courses />
+    <locations />
+    <contentFields>
+      <field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="providerCustom" name="Something special">
+        <![CDATA[This is a custom field. It can contain information that don't fit in any of the default fields]]>
+      </field>
+    </contentFields>
+  </provider>
+</import>
