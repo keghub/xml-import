@@ -1,7 +1,9 @@
 ## Course
 A `<course />` node contains all the information related to a course or a program.
 
-It is an instance of the [complex type Course](../../schemas/3.0/course.xsd#L13) and therefore supports the following attributes
+It is an instance of the [complex type Course](../../schemas/3.0/course.xsd#L13) and therefore supports the attributes and elements listed below.
+
+[Here you can find some samples](../../samples/3.0/course-sample.xml)
 
 |Name|Type|Required|Description|
 |-|-|-|-|

@@ -3,7 +3,7 @@
 An _event_ represents an occurrence of a course or program.
 An `<event />` node contains all the information related to a specific occurrence, like where the event is held, its price, its start date and time and so on.
 
-[Here you can find the definition of the `Event` type](../../schemas/3.0/event.xsd)
+[Here you can find the definition of the `Event` type](../../schemas/3.0/event.xsd) and [here you can find some samples](../../samples/3.0/event-sample.xml).
 
 As for [provider](provider.md), [course](course.md) and [location](location.md), an event must have an identifier which is unique within its scope (i.e. its education).
 
