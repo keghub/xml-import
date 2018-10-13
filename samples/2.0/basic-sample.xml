@@ -3,24 +3,24 @@
 <informationUpdateBatch xmlns="http://educations.com/XmlImport" version="2.0">
   <institute id="3823">
     <locations>
-      <location uniqueIdentifier="stockholm" name="EMG HQ">
+      <location uniqueIdentifier="location-1" name="EMG HQ">
         <visitingAddress city="Stockholm" street="Karlavägen 104" zip="115 26" country="Sweden" />
         <place>Stockholm, Sweden</place>
         <coordinates latitude="59.335811" longitude="18.098354" />
       </location>
-      <location uniqueIdentifier="helsinki" name="EMG Finland">
+      <location uniqueIdentifier="location-2" name="EMG Finland">
         <visitingAddress city="Helsinki" street="Fredrikinkatu 34" zip="00100" country="Finland"/>
         <place>Helsinki, Finland</place>
       </location>
-      <location uniqueIdentifier="mannheim" name="EMG Germany">
+      <location uniqueIdentifier="location-3" name="EMG Germany">
         <visitingAddress city="Mannheim" country="Germany" street="P3 1-3" zip="68161" />
         <place>Mannheim, Germany</place>
       </location>
-      <location uniqueIdentifier="copenhagen" name="EMG Denmark">
+      <location uniqueIdentifier="location-4" name="EMG Denmark">
         <visitingAddress city="Copenhagen" country="Denmark" street="Rådhusstræde 6, 3 sal" zip="1466"/>
         <place>Copenhagen, Denmark</place>
       </location>
-      <location uniqueIdentifier="oslo" name="EMG Norway">
+      <location uniqueIdentifier="location-5" name="EMG Norway">
         <visitingAddress city="Oslo" country="Norway" street="Tollbugata 8 A" zip="0152"/>
         <place>Oslo, Norway</place>
       </location>
@@ -28,7 +28,7 @@
     <educations>
       <education uniqueIdentifier="education-1" name="First course" educationTypeID="123">
         <events>
-          <event uniqueIdentifier="event-1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LocationEvent" locationUID="stockholm" eventTypeID="1" language="English" />
+          <event uniqueIdentifier="event-1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LocationEvent" locationUID="location-1" eventTypeID="1" language="English" />
           <event uniqueIdentifier="event-2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="DistanceEvent" eventTypeID="1" language="Swedish" />
           <event uniqueIdentifier="event-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AreaEvent" place="Stockholm" eventTypeID="1" language="Italian" />
         </events>
@@ -40,7 +40,7 @@
       </education>
       <education uniqueIdentifier="education-2" name="Second course" educationTypeID="123">
         <events>
-          <event uniqueIdentifier="event-1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LocationEvent" locationUID="stockholm" eventTypeID="1" language="English" />
+          <event uniqueIdentifier="event-1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="LocationEvent" locationUID="location-1" eventTypeID="1" language="English" />
           <event uniqueIdentifier="event-2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="DistanceEvent" eventTypeID="1" language="Swedish" />
           <event uniqueIdentifier="event-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AreaEvent" place="Stockholm" eventTypeID="1" language="Italian" />
         </events>

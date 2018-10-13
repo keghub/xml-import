@@ -1,0 +1,137 @@
+<import xmlns="http://educations.com/XmlImport" version="3.0">
+  <provider uniqueIdentifier="sample">
+    <locations />
+    <courses>
+      <!-- This is the minimal valid course node. While valid for the XML schema, this course will not automatically published. -->
+      <course uniqueIdentifier="course-00" name="Minimal course" courseType="Course">
+        <events />
+        <contentFields />
+      </course>
+
+      <!-- This is a course with a description. The description can contain HTML tags and is required to be published. -->
+      <course uniqueIdentifier="course-01" name="Course 01" courseType="Course">
+        <contentFields>
+          <field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="default" name="description">
+            <![CDATA[This is the description of the course. A course needs to have a description to be published.]]>
+          </field>
+        </contentFields>
+        <events />
+      </course>
+      
+      <!-- This is a course with a link to the specific page of the course on the partner's site. -->
+      <course uniqueIdentifier="course-02" name="Course 02" courseType="Course">
+        <link>https://www.educationsmediagroup.com/statistics</link>
+        <contentFields />
+        <events />
+      </course>
+      
+      <!-- This is a course with the total number of credits specified. This is typically relevant for university programs. -->
+      <course uniqueIdentifier="course-03" name="Course 03" courseType="University Program">
+        <credits>180</credits>
+        <contentFields />
+        <events />
+      </course>
+      
+      <!-- This is a course with some keyword specified. There is no limit to the amount of keywords a course can have. -->
+      <course uniqueIdentifier="course-04" name="Course 04" courseType="Course">
+        <keywords>
+          <keyword>keywords</keyword>
+          <keyword>course</keyword>
+        </keywords>
+        <contentFields />
+        <events />
+      </course>
+
+      <!--
+        This is a course with information about how to digitally apply specified.
+        The URL might or might not be the same as the one specified in the <link /> node.
+        The start and the end date are optional.
+      -->
+      <course uniqueIdentifier="course-05" name="Course 05" courseType="Course">
+        <application url="https://www.educationsmediagroup.com/statistics" startDate="2018-12-01" endDate="2018-12-31" />
+        <contentFields />
+        <events />
+      </course>
+      
+      <!--
+        This is a course with information about who should receive the lead our platform generates specified.
+      -->
+      <course uniqueIdentifier="course-06" name="Course 06" courseType="Course">
+        <informationRequestSettings>
+          <emailReceivers>
+            <receiver email="someone@yourcompany.com" />
+            <receiver email="someone.else@yourcompany.com" />
+          </emailReceivers>
+        </informationRequestSettings>
+        <contentFields />
+        <events />
+      </course>
+      
+      <!--
+        This is a course with the related categories specified.
+      -->
+      <course uniqueIdentifier="course-07" name="Course 07" courseType="Course">
+        <categories>
+          <category name="Category 1" />
+          <category name="Category 2" />
+          <category name="Category 3" />
+        </categories>
+        <contentFields />
+        <events />
+      </course>
+      
+      <!--
+        This is a course with the list of related certificates specified.
+      -->
+      <course uniqueIdentifier="course-08" name="Course 08" courseType="Course">
+        <grantedCertificates>
+          <certificate name="Certificate 1" />
+        </grantedCertificates>
+        <contentFields />
+        <events />
+      </course>
+      
+          
+      <!-- 
+        This is a course with the duration expressed with a descriptive text. The information here will be only displayed.
+      -->
+      <course uniqueIdentifier="course-09" name="Course 09" courseType="Course">
+        <duration text="8 hours/day, 5 days" />
+        <events />
+        <contentFields />
+      </course>
+      
+      <!--
+        This is a course with the duration expressed with specific fields. The information will be used to filter the course
+      -->
+      <course uniqueIdentifier="course-10" name="Course 10" courseType="Course">
+        <duration>
+          <specific unit="hours" value="40" />
+        </duration>
+        <events />
+        <contentFields />
+      </course>
+      
+      <!--
+        This is a course with the duration expressed with both text and specific fields.
+      -->
+      <course uniqueIdentifier="course-11" name="Course 11" courseType="Course">
+        <duration text="8 hours/day, 5 days">
+          <specific unit="hours" value="40" />
+        </duration>
+        <events />
+        <contentFields />
+      </course>
+
+      <!-- This is a course with a custom content field. -->
+      <course uniqueIdentifier="course-12" name="Course 12" courseType="Course">
+        <contentFields>
+          <field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="custom" name="Special information">
+            <![CDATA[This is a custom field. It can contain information that don't fit in any of the default fields]]>
+          </field>
+        </contentFields>
+        <events />
+      </course>
+    </courses>
+  </provider>
+</import>

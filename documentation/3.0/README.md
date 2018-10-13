@@ -38,7 +38,7 @@ We use the identifier to determine whether a certain entity is new, needs to be 
     <courses>
       <course />
       ...
-    </course>
+    </courses>
     <locations>
       <location />
       ...

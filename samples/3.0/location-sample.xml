@@ -1,0 +1,51 @@
+<import xmlns="http://educations.com/XmlImport" version="3.0">
+  <provider uniqueIdentifier="sample">
+    <locations>
+      <!-- A Location with all the minimal data -->
+      <location uniqueIdentifier="location-1" name="Test Location 01">
+        <place>Stockholm</place>
+      </location>
+      
+      <!-- A Location with a fully defined visiting address node -->
+      <location uniqueIdentifier="location-2" name="Test Location 02">
+        <visitingAddress city="Helsinki" street="Fredrikinkatu 34" zip="00100" country="Finland"/>
+        <place>Helsinki</place>
+      </location>
+      
+      <!-- A Location with a fully defined mail address node -->
+      <location uniqueIdentifier="location-3" name="Test Location 03">
+        <mailAddress city="Mannheim" country="Germany" street="P3 1-3" zip="68161" />
+        <place>Mannheim</place>
+      </location>
+
+      <!-- A Location with a set of coordinates -->
+      <location uniqueIdentifier="location-4" name="Test Location 04">
+        <coordinates latitude="55.6659435" longitude="12.580535300000065" />
+        <place>Copenhagen</place>
+      </location>
+
+      <!-- A Location with a set of contacts, phone and fax -->
+      <location uniqueIdentifier="location-5" name="Test Location 05">
+        <place>Naples</place>
+        <contacts fax="081 123 456 789" telephone="081 123 456 789" />
+      </location>
+      
+      <!-- A Location with a description -->
+      <location uniqueIdentifier="location-6" name="Test Location 06">
+        <place>Stockholm</place>
+        <description>
+          <![CDATA[Our Test Location 06 is located in the wonderful city of Stockholm.]]>
+        </description>
+      </location>
+      
+      <!-- A location with some residential information -->
+      <location uniqueIdentifier="location-7" name="Test Location 07">
+        <place>Helsinki</place>
+        <residentialInformation>
+          <![CDATA[Helsinki has many beautiful houses.]]>
+        </residentialInformation>
+      </location>
+    </locations>
+    <courses />
+  </provider>
+</import>

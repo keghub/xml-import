@@ -4,6 +4,8 @@ The `<provider />` node is composed by three nodes:
 * `<courses />` that will contain all the provider's [courses](course.md)
 * `<contentFields />` that will contain all the text information regarding the provider
 
+[Here you can find the definition of the `Provider` type](../../schemas/3.0/provider.xsd) and [here you can find some samples](../../samples/3.0/provider-sample.xml).
+
 Both the `<locations />` and the `<courses />` nodes can contain an unlimited amount of items, but all items must have an identifier unique within their scope.
 
 ### Content fields
