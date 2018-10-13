@@ -1,0 +1,213 @@
+<import xmlns="http://educations.com/XmlImport" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.0">
+  <provider uniqueIdentifier="sample">
+    <locations>
+      <location uniqueIdentifier="test-location" name="Test Location">
+        <place>Stockholm</place>
+      </location>
+    </locations>
+    <courses>
+      <course uniqueIdentifier="sample" name="Sample course" courseType="Sample">
+        <contentFields />
+        <events>
+          
+          <!-- This is a minimal event bound to a specific venue like a typical open-class course -->
+          <event xsi:type="LocationEvent" uniqueIdentifier="event-01" locationUID="test-location" deliveryMethod="Open class" />
+            
+          <!-- This is a minimal event bound to an area like a city or a country. Typically in-house trainings use this. -->
+          <event xsi:type="AreaEvent" uniqueIdentifier="event-02" place="Sweden" deliveryMethod="In-house" />
+            
+          <!-- This is a minimal event that happens on distance. Typically an online course uses this -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-03" deliveryMethod="Online" />
+            
+          <!-- This is an event that uses a random string as delivery method. Your account manager might suggest to do so -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-04" deliveryMethod="Delivery Method" />
+
+          <!-- This is an event that specified the language of instruction. Albeit optional, it's better to always specify it. -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-05" deliveryMethod="Delivery Method" language="English" />
+
+          <!-- This is an event that specifies a URL pointing at the specific session on the homepage of the partner -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-06" deliveryMethod="Delivery Method" link="https://www.educationsmediagroup.com/statistics" />
+
+          <!-- This is an event that specifies the pace of the specific event. The value is optional and can range from 0.00 to 100.00. If not specified, 100.00 is assumed. -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-07" deliveryMethod="Delivery Method">
+            <pace>50.00</pace>
+          </event>
+            
+          <!--
+              This is an event that specifies the information needed to generate a deeplink to certain application systems.
+              It requires an application code.
+              It can specify an url if it's different from the course and event link.
+              It can specify start and end date for the application to be open.
+            -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-08" deliveryMethod="Delivery Method">
+            <applicationInfo url="https://www.educationsmediagroup.com/statistics" applicationCode="asd-123" startDate="2018-12-01" endDate="2018-12-31" />
+          </event>
+
+          <!--
+              This is an event that specify additional information that don't fit in any of other field.
+              This field needs to be processed ad-hoc it should be used only when agreed with your account manager.
+            -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-09" deliveryMethod="Delivery Method">
+            <additionalInfo>
+              <item key="item 1">Some unstructured information</item>
+              <item key="item 2">Some other unstructured information</item>
+            </additionalInfo>
+          </event>
+
+          <!--
+              This is an event with some flags specified.
+              Flags are boolean markers that can be either on or off for a certain event.
+            -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-10" deliveryMethod="Delivery Method">
+            <flags>
+              <!-- This flag is always active-->
+              <flag name="First flag" />
+                
+              <!-- This flag is active from December 1st 2018 -->
+              <flag name="Second flag" startDate="2018-12-01" />
+                
+              <!-- This flag is active until December 31st 2018 -->
+              <flag name="Third flag" endDate="2018-12-31"/>
+                
+              <!-- This flag is active from December 1st 2018 to December 31st 2018 -->
+              <flag name="Fourth flag" startDate="2018-12-01" endDate="2018-12-31" />
+            </flags>
+          </event>
+            
+          <!-- This is an event with information about its start in unstructured format. -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-11" deliveryMethod="Delivery Method">
+            <start xsi:type="Text" description="This event starts every three days"/>
+          </event>
+            
+          <!-- This is an event that starts every Spring -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-12" deliveryMethod="Delivery Method">
+            <start xsi:type="Semester" semester="Spring"/>
+          </event>
+            
+          <!-- This is an event set to start in the Fall of 2019 -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-13" deliveryMethod="Delivery Method">
+            <start xsi:type="Semester" semester="Fall" year="2019" />
+          </event>
+            
+          <!-- This is an event that starts every November -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-14" deliveryMethod="Delivery Method">
+            <start xsi:type="Month" month="11" />
+          </event>
+            
+          <!-- This is an event set to start in January 2019 -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-15" deliveryMethod="Delivery Method">
+            <start xsi:type="Month" month="1" year="2019" />
+          </event>
+            
+          <!-- This is an event that starts on a specific date, December 1st 2018 -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-16" deliveryMethod="Delivery Method">
+            <start xsi:type="Fixed" startDate="2018-12-01" />
+          </event>
+            
+          <!-- This is an event that starts on a specific date, at a specific time -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-17" deliveryMethod="Delivery Method">
+            <start xsi:type="Fixed" startDate="2018-12-01" startTime="08:30:00" />
+          </event>
+            
+          <!-- This is an event that starts on a specific date and ends on a specific date -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-18" deliveryMethod="Delivery Method">
+            <start xsi:type="Fixed" startDate="2018-12-01" endDate="2018-12-31" />
+          </event>
+            
+          <!-- This is an event that starts on a specific date and ends at a specific time -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-19" deliveryMethod="Delivery Method">
+            <start xsi:type="Fixed" startDate="2018-12-01" endTime="17:30:00" />
+          </event>
+            
+          <!-- This is an event that starts on a specific date, at a specific time and ends on a specific date, at a specific time -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-20" deliveryMethod="Delivery Method">
+            <start startDate="2018-12-01" xsi:type="Fixed" startTime="08:30:00" endDate="2018-12-31" endTime="17:30:00" />
+          </event>
+          
+          <!-- This is an event explicitly marked to be always available -->
+          <!-- Events with not <start /> are implicitly considered AlwaysOpen -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-21" deliveryMethod="Delivery Method">
+            <start xsi:type="AlwaysOpen" />
+          </event>
+            
+          <!-- This is an event with a price specified. The default currency of the site where the course is published is assumed -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-22" deliveryMethod="Delivery Method">
+            <price price="500" />
+          </event>
+          
+          <!-- This is an event that specifies the currency -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-23" deliveryMethod="Delivery Method">
+            <price price="500" currency="EUR" />
+          </event>
+
+          <!-- This is an event that specifies the percentage of the VAT to be added -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-24" deliveryMethod="Delivery Method">
+            <price price="500" vat="10" />
+          </event>
+
+          <!-- This is an event that includes the percentage of the VAT already included in the specified price -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-25" deliveryMethod="Delivery Method">
+            <price price="500" vat="15" vatIncluded="true" />
+          </event>
+
+          <!-- This is an event whose cost has a specified discount. The currency is the same of the event cost -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-26" deliveryMethod="Delivery Method">
+            <price price="500">
+              <discount value="100" />
+            </price>
+          </event>
+            
+          <!-- This is an event with a discount starting at a specific date. -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-27" deliveryMethod="Delivery Method">
+            <price price="500">
+              <discount value="100" startDate="2018-12-01" />
+            </price>
+          </event>
+            
+          <!-- This is an event with a discount ending by a specific date -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-28" deliveryMethod="Delivery Method">
+            <price price="500">
+              <discount value="100" endDate="2018-12-31" />
+            </price>
+          </event>
+
+          <!-- This is an event with a discount valid during a specified period -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-29" deliveryMethod="Delivery Method">
+            <price price="500">
+              <discount value="100" startDate="2018-12-01" endDate="2018-12-31" />
+            </price>
+          </event>
+            
+          <!-- This is an event with a discount specified as a percentage of the event cost -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-30" deliveryMethod="Delivery Method">
+            <price price="500">
+              <discountRate percentage="10" />
+            </price>
+          </event>
+            
+          <!-- This is an event with a discount rate starting at a specific date. -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-31" deliveryMethod="Delivery Method">
+            <price price="500">
+              <discountRate percentage="10" startDate="2018-12-01" />
+            </price>
+          </event>
+            
+          <!-- This is an event with a discount rate ending by a specific date -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-32" deliveryMethod="Delivery Method">
+            <price price="500">
+              <discountRate percentage="10" endDate="2018-12-31" />
+            </price>
+          </event>
+            
+          <!-- This is an event with a discount rate valid during a specified period -->
+          <event xsi:type="DistanceEvent" uniqueIdentifier="event-33" deliveryMethod="Delivery Method">
+            <price price="500">
+              <discountRate percentage="10" startDate="2018-12-01" endDate="2018-12-31" />
+            </price>
+          </event>
+
+        </events>
+      </course>
+    </courses>
+  </provider>
+</import>
