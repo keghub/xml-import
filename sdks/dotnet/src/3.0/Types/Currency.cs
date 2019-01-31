@@ -38,5 +38,7 @@ namespace EMG.XML
         [XmlEnum] HKD,
 
         [XmlEnum] IDR,
+
+        [XmlEnum] CZK,
     }
 }
