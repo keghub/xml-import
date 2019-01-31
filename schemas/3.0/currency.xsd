@@ -22,6 +22,7 @@
       <xs:enumeration value="PLN" />
       <xs:enumeration value="HKD" />
       <xs:enumeration value="IDR" />
+      <xs:enumeration value="CZK" />
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>
