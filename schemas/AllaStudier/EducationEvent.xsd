@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:event="http://allastudier.se/EducationEvent" targetNamespace="http://allastudier.se/EducationEvent" xmlns:common="http://allastudier.se/CommonTypes" elementFormDefault="qualified">
+	<xs:import schemaLocation="CommonTypes.xsd" namespace="http://allastudier.se/CommonTypes"/>
+
+	<xs:element name="educationEventData" type="event:educationEventData"/>
+
+	<xs:complexType name="educationEventData">
+		<xs:all>
+			<xs:element name="eventIdentifier" type="xs:string" minOccurs="0"/>
+			<xs:element name="expires" type="xs:date" minOccurs="0"/>
+
+			<xs:element name="startDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="stopDate" type="xs:string" minOccurs="0"/>
+
+			<xs:element name="location" type="common:locationalAddress" minOccurs="0"/>
+			<xs:element name="distance" type="event:distance" minOccurs="0"/>
+
+
+			<xs:element name="timeOfStudy" type="event:timeOfStudy" minOccurs="0"/>
+			<xs:element name="paceOfStudy" type="common:percentage" minOccurs="0"/>
+
+			<xs:element name="url" type="xs:anyURI" minOccurs="0"/>
+
+			<xs:element name="application" type="event:application" minOccurs="0"/>
+
+			<xs:element name="eligibleForStudentAid" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="fee" type="event:fee" minOccurs="0"/>
+			<xs:element name="instructionLanguages" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="instructionLanguage" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:all>
+	</xs:complexType>
+
+
+	<xs:simpleType name="timeOfStudy">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="dag"/>
+			<xs:enumeration value="kväll"/>
+			<xs:enumeration value="eftermiddag"/>
+			<xs:enumeration value="veckoslut"/>
+			<xs:enumeration value="blandad"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="application">
+		<xs:sequence>
+			<xs:element name="lastApplicationDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="lateApplicationPermittedUntil" type="xs:date" minOccurs="0"/>
+			<xs:element name="url" type="xs:anyURI" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="distance">
+	</xs:complexType>
+
+	<xs:complexType name="fee">
+		<xs:sequence>
+			<xs:element name="amount" type="common:positiveDouble" minOccurs="0"/>
+			<xs:element name="currency" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

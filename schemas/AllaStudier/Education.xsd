@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ed="http://allastudier.se/Education" xmlns:event="http://allastudier.se/EducationEvent" targetNamespace="http://allastudier.se/Education" xmlns:common="http://allastudier.se/CommonTypes" elementFormDefault="qualified">
+	<xs:import schemaLocation="CommonTypes.xsd" namespace="http://allastudier.se/CommonTypes"/>
+	<xs:import schemaLocation="EducationEvent.xsd" namespace="http://allastudier.se/EducationEvent"/>
+
+	<xs:complexType name="educationData">
+		<xs:all>
+			<xs:element name="educationIdentifier" type="xs:string" minOccurs="1"/>
+			<xs:element name="externalProviderIdentifier" type="xs:string"/>
+			<xs:element name="expires" type="xs:date" minOccurs="0"/>
+			<xs:element name="configuration" type="ed:configuration" minOccurs="0"/>
+			<xs:element name="form" type="ed:form" minOccurs="1"/>
+			<xs:element name="companyAdaptation" type="xs:boolean" minOccurs="0"/>
+
+			<xs:element name="title" type="xs:string" minOccurs="1"/>
+			<xs:element name="description" type="xs:string" minOccurs="1"/>
+
+			<xs:element name="url" type="xs:anyURI" minOccurs="1"/>
+
+			<xs:element name="eligibilityDescription" type="xs:string" minOccurs="0"/>
+			<xs:element name="extent" type="ed:timeLength" minOccurs="0"/>
+			<xs:element name="credits" type="ed:credits" minOccurs="0"/>
+			<xs:element name="degree" type="xs:string" minOccurs="0"/>
+			<xs:element name="eligibleForStudentAid" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="educationLevel" type="ed:level" minOccurs="0"/>
+
+			<xs:element name="subjects" minOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="subject" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="synonymes" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="synonyme" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+
+			<xs:element name="educationEvents" minOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="educationEvent" type="event:educationEventData" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:all>
+	</xs:complexType>
+
+	<xs:simpleType name="level">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="grund"/>
+			<xs:enumeration value="avancerad"/>
+			<xs:enumeration value="förutbildning"/>
+			<xs:enumeration value="grundavancerad"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="configuration">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Program"/>
+			<xs:enumeration value="Kurs"/>
+			<xs:enumeration value="Företagsanpassad"/>
+			<xs:enumeration value="E-learning"/>
+			<xs:enumeration value="Öppen"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="form" >
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="gymnasieutbildning"/>
+			<xs:enumeration value="vuxenutbildning"/>
+			<xs:enumeration value="yrkesutbildning"/>
+			<xs:enumeration value="kompletterande utbildning"/>
+			<xs:enumeration value="kompetensutveckling"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="credits">
+		<xs:sequence>
+			<xs:element name="credits" type="common:positiveDouble" minOccurs="0"/>
+			<xs:element name="system" type="ed:creditsSystem" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="creditsSystem">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="gy"/>
+			<xs:enumeration value="hp"/>
+			<xs:enumeration value="yh"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="timeLength">
+		<xs:sequence>
+			<xs:element name="length" type="xs:positiveInteger" minOccurs="0"/>
+			<xs:element name="timeUnit" type="ed:timeUnit" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="timeUnit">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="hours"/>
+			<xs:enumeration value="days"/>
+			<xs:enumeration value="weeks"/>
+			<xs:enumeration value="months"/>
+			<xs:enumeration value="semesters"/>
+			<xs:enumeration value="years"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="subject">
+		<xs:sequence>
+			<xs:element name="subject" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+
