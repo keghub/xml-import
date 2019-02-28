@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:as="http://allastudier.se/Allastudier" targetNamespace="http://allastudier.se/Allastudier" xmlns:education="http://allastudier.se/Education" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:as="http://allastudier.se/Allastudier" targetNamespace="http://allastudier.se/Allastudier" xmlns:education="http://allastudier.se/Education" elementFormDefault="qualified">
 	<xs:import schemaLocation="Education.xsd" namespace="http://allastudier.se/Education"/>
 
 	<xs:element name="importData">

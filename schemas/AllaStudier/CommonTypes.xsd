@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:common="http://allastudier.se/CommonTypes" targetNamespace="http://allastudier.se/CommonTypes">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:common="http://allastudier.se/CommonTypes" targetNamespace="http://allastudier.se/CommonTypes">
   <xs:simpleType name="email">
     <xs:restriction base="xs:string">
       <xs:pattern value="[^@]+@[^\.]+\..+"/>
@@ -7,14 +7,14 @@
   </xs:simpleType>
 
   <xs:complexType name="locationalAddress">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="geoData" type="common:coordinate" minOccurs="0"/>
       <xs:element name="streetAddress" type="xs:string" minOccurs="0"/>
       <xs:element name="zipCode" type="xs:string" minOccurs="0"/>
       <xs:element name="city" type="xs:string" minOccurs="1"/>
       <xs:element name="municipalityCode" type="common:municipalityCode" minOccurs="0"/>
       <xs:element name="country" type="xs:string" minOccurs="0"/>
-    </xs:sequence>
+    </xs:all>
   </xs:complexType>
 
   <xs:simpleType name="percentage">
