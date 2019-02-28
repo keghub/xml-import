@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ed="http://allastudier.se/Education" xmlns:event="http://allastudier.se/EducationEvent" targetNamespace="http://allastudier.se/Education" xmlns:common="http://allastudier.se/CommonTypes" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ed="http://allastudier.se/Education" xmlns:event="http://allastudier.se/EducationEvent" targetNamespace="http://allastudier.se/Education" xmlns:common="http://allastudier.se/CommonTypes" elementFormDefault="qualified">
 	<xs:import schemaLocation="CommonTypes.xsd" namespace="http://allastudier.se/CommonTypes"/>
 	<xs:import schemaLocation="EducationEvent.xsd" namespace="http://allastudier.se/EducationEvent"/>
 
@@ -69,13 +69,26 @@
 	</xs:simpleType>
 
 	<xs:simpleType name="form" >
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="gymnasieutbildning"/>
-			<xs:enumeration value="vuxenutbildning"/>
-			<xs:enumeration value="yrkesutbildning"/>
-			<xs:enumeration value="kompletterande utbildning"/>
-			<xs:enumeration value="kompetensutveckling"/>
-		</xs:restriction>
+		<xs:union>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="gymnasieutbildning"/>
+					<xs:enumeration value="vuxenutbildning"/>
+					<xs:enumeration value="yrkesutbildning"/>
+					<xs:enumeration value="kompletterande utbildning"/>
+					<xs:enumeration value="kompetensutveckling"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:pattern value="[Gg][Yy][Mm][Nn][Aa][Ss][Ii][Ee][Uu][Tt][Bb][Ii][Ll][Dd][Nn][Ii][Nn][Gg]" />
+					<xs:pattern value="[Vv][Uu][Xx][Ee][Nn][Uu][Tt][Bb][Ii][Ll][Dd][Nn][Ii][Nn][Gg]" />
+					<xs:pattern value="[Yy][Rr][Kk][Ee][Ss][Uu][Tt][Bb][Ii][Ll][Dd][Nn][Ii][Nn][Gg]" />
+					<xs:pattern value="[Kk][Oo][Mm][Pp][Ll][Ee][Tt][Tt][Ee][Rr][Aa][Nn][Dd][Ee][ ][Uu][Tt][Bb][Ii][Ll][Dd][Nn][Ii][Nn][Gg]" />
+					<xs:pattern value="[Kk][Oo][Mm][Pp][Ee][Tt][Ee][Nn][Ss][Uu][Tt][Vv][Ee][Cc][Kk][Ll][Ii][Nn][Gg]" />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:union>
 	</xs:simpleType>
 
 	<xs:complexType name="credits">
