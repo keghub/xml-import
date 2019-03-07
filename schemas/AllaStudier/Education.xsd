@@ -38,6 +38,13 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+			<xs:element name="synonyms" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="synonyme" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 
 			<xs:element name="educationEvents" minOccurs="1">
 				<xs:complexType>
