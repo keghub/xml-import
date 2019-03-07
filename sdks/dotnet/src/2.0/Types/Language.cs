@@ -5,7 +5,7 @@ namespace EMG.XML
     [XmlType("KnownLanguages", Namespace = "http://educations.com/XmlImport")]
     public enum Language
     {
-        [XmlEnum] Afrikaans,
+        [XmlEnum] Afrikaans = 1,
 
         [XmlEnum] Arabic,
 
