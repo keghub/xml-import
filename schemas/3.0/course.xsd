@@ -97,6 +97,7 @@
                 <xs:enumeration value="months" />
                 <xs:enumeration value="years" />
                 <xs:enumeration value="semesters" />
+				<xs:enumeration value="lessons" />
               </xs:restriction>
             </xs:simpleType>
           </xs:attribute>
