@@ -99,6 +99,14 @@ namespace EMG.XML
 
         [XmlEnum] Tibetan,
 
-        [XmlEnum] Urdu
+        [XmlEnum] Urdu,
+
+        [XmlEnum] Khmer,
+
+        [XmlEnum] Turkish,
+
+        [XmlEnum] Vietnamese,
+
+        [XmlEnum] Georgian
     }
 }
