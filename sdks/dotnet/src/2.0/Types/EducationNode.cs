@@ -296,7 +296,7 @@ namespace EMG.XML
     [XmlType(AnonymousType = true, Namespace = "http://educations.com/XmlImport")]
     public enum EducationDurationUnit
     {
-        [XmlEnum("hours")] Hours,
+        [XmlEnum("hours")] Hours = 1,
 
         [XmlEnum("days")] Days,
 
