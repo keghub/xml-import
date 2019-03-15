@@ -236,7 +236,9 @@ namespace EMG.XML
 
         [XmlEnum("years")] Years,
 
-        [XmlEnum("semesters")] Semesters
+        [XmlEnum("semesters")] Semesters,
+
+        [XmlEnum("lessons")] Lessons
     }
 
     [XmlType("CourseTextProperty", Namespace = "http://educations.com/XmlImport")]
