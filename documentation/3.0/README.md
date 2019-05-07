@@ -48,3 +48,5 @@ We use the identifier to determine whether a certain entity is new, needs to be 
 ```
 
 The schema supports more than one provider. Each provider will need to have an identifier unique within its scope.
+
+Modified by Renato
