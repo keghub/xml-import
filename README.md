@@ -25,8 +25,20 @@ It is currently considered obsolete and new partners should adopt the 3.0 versio
 
 [Here you can see some samples for EMG XML 2.0](samples/2.0)
 
+## AllaStudier XML
+This XML schema is used by partners of [AllaStudier](http://allastudier.se/) to share their courses with us.
+
+It is currently considered obsolete and new partners should adopt the EMG XML 3.0 schema.
+
+[Here you can see the complete schema for AllaStudier XML](schemas/AllaStudier)
+
 ## SDKs
 Besides the schemas and the documentation for each format, this repository contains also the source code of libraries publicly available to help our partners generate XML documents matching our schemas.
 
 Here is a list of supported platforms
 - [.NET Framework and .NET Core](./sdks/dotnet)
+
+## Validator
+To help our partners validating the XML documents they have produced, we have created an online validator that accepts either a URL or an uploaded file. It currently supports all our supported formats: EMG XML 3.0, EMG XML 2.0 and AllaStudier.
+
+[Here you can find the online validator](https://xml-validator.educationsmediagroup.com/)
