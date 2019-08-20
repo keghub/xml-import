@@ -28,6 +28,10 @@ The `<contentFields />` node is used to group all the text information regarding
 
 A node can be of two types, [`default`](../../schemas/3.0/course-text-property.xsd#L13-L19) and [`custom`](../../schemas/3.0/course-text-property.xsd#L21-L34).
 
+Please note that from September 30th 2019, findcourses.co.uk and findcourses.com will no longer support custom content fields.
+
+Instead, please use the default content fields listed below.
+
 #### Default content fields
 The default content fields are fields that contain important information for the visitor.
 By using the default content fields, you are making sure that course information is found on our site in the location that users are used to.
@@ -42,6 +46,7 @@ Here is the list of [default content fields](../../schemas/3.0/course-text-prope
 |`continuing`|How to continue the studies after this course (i.e. advanced level etc.)|
 |`detailedCost`|Detailed information about pricing and what’s included in the price|
 |`technicalPrerequisites`|Technical requirements (i.e. computer, operating system)|
+|`*Training Course Content*`|Detailed information about course content (i.e. topics, modules, syllabus)|
 |`platform`|The platform used during the course (_obsolete_)|
 |`applicationDeadline`|The deadline to apply to the course (_obsolete_)|
 
