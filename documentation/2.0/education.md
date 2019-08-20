@@ -44,6 +44,7 @@ Here is the list of [default content fields](../../schemas/2.0/text-property.xsd
 |`degree`|The certification that the participants may receive|
 |`continuing`|How to continue the studies after this course (i.e. advanced level etc.)|
 |`detailedCost`|Detailed information about pricing and what’s included in the price|
+|`*Training Course Content*`|Detailed information about course content (i.e. topics, modules, syllabus)|
 |`technicalPrerequisites`|Technical requirements (i.e. computer, operating system)|
 |`platform`|The platform used during the course (_obsolete_)|
 |`applicationDeadline`|The deadline to apply to the course (_obsolete_)|
