@@ -24,10 +24,10 @@
         <place>Copenhagen</place>
       </location>
 
-      <!-- A Location with a set of contacts, phone and fax -->
+      <!-- A Location with a set of contacts, email, phone and fax -->
       <location uniqueIdentifier="location-5" name="Test Location 05">
         <place>Naples</place>
-        <contacts fax="081 123 456 789" telephone="081 123 456 789" />
+        <contacts fax="081 123 456 789" telephone="081 123 456 789" email="someone@yourcompany.com" />
       </location>
       
       <!-- A Location with a description -->

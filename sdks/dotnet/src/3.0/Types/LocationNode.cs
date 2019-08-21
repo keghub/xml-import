@@ -111,6 +111,9 @@ namespace EMG.XML
 
         [XmlAttribute("fax")]
         public string Fax { get; set; }
+
+        [XmlAttribute("email")]
+        public string Email { get; set; }
     }
 
     [XmlType("Coordinates", Namespace = "http://educations.com/XmlImport")]
