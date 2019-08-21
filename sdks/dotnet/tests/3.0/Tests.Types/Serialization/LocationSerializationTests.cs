@@ -20,6 +20,8 @@ namespace Tests.EMG30.Serialization {
             fixture.Customize<ProviderNode>(o => o
                                                  .With(p => p.Courses, new CourseNode[0])
                                                  .With(p => p.ContentFields, new ProviderContentField[0]));
+
+            fixture.Customize<LocationContacts>(o => o.With(p => p.Email, "test@testing.com"));
         }
 
         [Test]

@@ -33,6 +33,8 @@ namespace Tests.EMG30.Serialization
                                                .With(p => p.ContentFields, new CourseContentField[0])
             );
 
+            fixture.Customize<LocationContacts>(o => o.With(p => p.Email, "test@testing.com"));
+
             fixture.Customizations.Add(new TypeRelay(typeof(EventNode), typeof(DistanceEvent)));
         }
 
