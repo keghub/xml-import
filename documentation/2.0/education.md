@@ -144,16 +144,16 @@ The content of the element must be a valid URI that matches the default type [an
 
 ```xml
 <!-- Application link with both start and end date -->
-<application startDate="2018-05-01" endDate="2018-05-31">https://career.educationsmediagroup.com/jobs</application>
+<application startDate="2018-05-01" endDate="2018-05-31" url="https://career.educationsmediagroup.com/jobs" />
 
 <!-- Application link with only the start date -->
-<application startDate="2018-05-01">https://career.educationsmediagroup.com/jobs</application>
+<application startDate="2018-05-01" url="https://career.educationsmediagroup.com/jobs" />
 
 <!-- Application link with only the end date -->
-<application endDate="2018-05-31">https://career.educationsmediagroup.com/jobs</application>
+<application endDate="2018-05-31" url="https://career.educationsmediagroup.com/jobs" />
 
 <!-- Application link with no dates -->
-<application>https://career.educationsmediagroup.com/jobs</application>
+<application url="https://career.educationsmediagroup.com/jobs" />
 ```
 
 This field is optional.
