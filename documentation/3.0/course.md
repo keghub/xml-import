@@ -69,6 +69,8 @@ Here is an example of a custom field containing HTML text
 </field>
 ```
 
+Please notice that some sites might be restricting the list of custom content fields. [Here you can see a list of the accepted fields for every site](../shared/content-fields.md).
+
 ### Events
 The [`<events />`](../../schemas/3.0/course.xsd#L23-L37) node contains a list of events. [Here you can find information about the events](event.md).
 
