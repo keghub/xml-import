@@ -110,12 +110,12 @@ Additionally, you can specify an year. If not specified, the event is assumed to
 <start xsi:type="Semester" semester="Spring" />
 ```
 
-#### Always on
+#### Always open
 
-An event start of type [`AlwaysOn`](../../schemas/2.0/event-start-info.xsd#L54-L58) is used when an event is always ready to start. It does not require additional information.
+An event start of type [`AlwaysOpen`](../../schemas/2.0/event-start-info.xsd#L54-L58) is used when an event is always ready to start. It does not require additional information.
 
 ```xml
-<start xsi:type="AlwaysOn" />
+<start xsi:type="AlwaysOpen" />
 ```
 
 #### Text
