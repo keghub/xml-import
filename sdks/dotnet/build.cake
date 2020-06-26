@@ -112,8 +112,11 @@ Task("Push")
         }
     }
 });
+
 Task("CI")
     .IsDependentOn("Push");
+
+bool IsBuildPersonal() => bool.TryParse(EnvironmentVariable("BUILD_IS_PERSONAL"), out bool res) && res;
 
 bool IsMaster() => EnvironmentVariable("Git_Branch") == @"refs/heads/master";
 
