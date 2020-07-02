@@ -79,6 +79,9 @@ Task("Pack")
 
 Task("Push")
     .IsDependentOn("Pack")
+    .WithCriteria(!BuildSystem.IsLocalBuild, "This step can only be executed when on a build server")
+    .WithCriteria(!IsBuildPersonal(), "This step cannot be executed on personal builds")
+    .WithCriteria(IsMaster(), "This step can only be executed when on the master branch")
     .Does(() =>
 {
     var apiKey = EnvironmentVariable("NuGetApiKey");
@@ -109,5 +112,12 @@ Task("Push")
         }
     }
 });
+
+Task("CI")
+    .IsDependentOn("Push");
+
+bool IsBuildPersonal() => bool.TryParse(EnvironmentVariable("BUILD_IS_PERSONAL"), out bool res) && res;
+
+bool IsMaster() => EnvironmentVariable("Git_Branch") == @"refs/heads/master";
 
 RunTarget(target);
