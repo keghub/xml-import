@@ -57,6 +57,7 @@
 	  <xs:enumeration value="Turkish" />
 	  <xs:enumeration value="Vietnamese" />	  
 	  <xs:enumeration value="Georgian" />
+      <xs:enumeration value="Catalan" />
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>
