@@ -107,6 +107,8 @@ namespace EMG.XML
 
         [XmlEnum] Vietnamese,
 
-        [XmlEnum] Georgian
+        [XmlEnum] Georgian,
+
+        [XmlEnum] Catalan
     }
 }
