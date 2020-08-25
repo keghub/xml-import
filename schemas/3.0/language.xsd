@@ -11,6 +11,7 @@
       <xs:enumeration value="Basque" />
       <xs:enumeration value="Buginese" />
       <xs:enumeration value="Bulgarian" />
+      <xs:enumeration value="Catalan" />
       <xs:enumeration value="Chinese" />
       <xs:enumeration value="Croatian" />
       <xs:enumeration value="Czech" />
@@ -22,6 +23,7 @@
       <xs:enumeration value="Finnish" />
       <xs:enumeration value="French" />
       <xs:enumeration value="Frisian" />
+      <xs:enumeration value="Georgian" />
       <xs:enumeration value="German" />
       <xs:enumeration value="Greek" />
       <xs:enumeration value="Hebrew" />
@@ -31,6 +33,7 @@
       <xs:enumeration value="Italian" />
       <xs:enumeration value="Japanese" />
       <xs:enumeration value="Javanese" />
+      <xs:enumeration value="Khmer" />
       <xs:enumeration value="Korean" />
       <xs:enumeration value="Latin" />
       <xs:enumeration value="Latvian" />
@@ -52,12 +55,9 @@
       <xs:enumeration value="Tamil" />
       <xs:enumeration value="Thai" />
       <xs:enumeration value="Tibetan" />
-      <xs:enumeration value="Urdu" />
-      <xs:enumeration value="Khmer" />
       <xs:enumeration value="Turkish" />
+      <xs:enumeration value="Urdu" />
       <xs:enumeration value="Vietnamese" />	  
-      <xs:enumeration value="Georgian" />
-      <xs:enumeration value="Catalan" />
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>
