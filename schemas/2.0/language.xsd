@@ -53,10 +53,10 @@
       <xs:enumeration value="Thai" />
       <xs:enumeration value="Tibetan" />
       <xs:enumeration value="Urdu" />
-	  <xs:enumeration value="Khmer" />
-	  <xs:enumeration value="Turkish" />
-	  <xs:enumeration value="Vietnamese" />	  
-	  <xs:enumeration value="Georgian" />
+      <xs:enumeration value="Khmer" />
+      <xs:enumeration value="Turkish" />
+      <xs:enumeration value="Vietnamese" />	  
+      <xs:enumeration value="Georgian" />
       <xs:enumeration value="Catalan" />
     </xs:restriction>
   </xs:simpleType>
