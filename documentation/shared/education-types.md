@@ -169,15 +169,12 @@ Here is a comprehensive list of education types and their ID, divided by site.
 
 |ID|Name|Description|
 |-|-|-|
-|235|Aufstiegsfortbildungen||
-|258|Bachelorstudium||
-|136|Fernlehrgänge / E-Learning / Online||
-|135|Inhouse Kurse||
-|172|Master of Business Administration (MBA)||
-|257|Masterstudium||
-|134|Offene Kurse||
+|134|Kurse||
 |173|Studiengänge||
+|258|Bachelorstudium||
+|257|Masterstudium||
 |186|Tagungen & Kongresse||
+|357|Umschulungen||
 
 ### searchmba.com
 
