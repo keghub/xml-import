@@ -10,6 +10,7 @@
   <xs:include schemaLocation="location.xsd" />
   <xs:include schemaLocation="course-text-property.xsd" />
   <xs:include schemaLocation="provider-text-property.xsd" />
+  <xs:include schemaLocation="information-request.xsd" />
 
   <xs:complexType name="Provider">
     <xs:all>
@@ -41,6 +42,7 @@
           <xs:field xpath="@uniqueIdentifier" />
         </xs:unique>
       </xs:element>
+	  <xs:element name="informationRequestSettings" type="InformationRequest" minOccurs="0" maxOccurs="1" />
     </xs:all>
     <xs:attribute name="uniqueIdentifier" type="xs:string" use="required" />
   </xs:complexType>
