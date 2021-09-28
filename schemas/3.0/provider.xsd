@@ -42,7 +42,7 @@
           <xs:field xpath="@uniqueIdentifier" />
         </xs:unique>
       </xs:element>
-	  <xs:element name="informationRequestSettings" type="InformationRequest" minOccurs="0" maxOccurs="1" />
+      <xs:element name="informationRequestSettings" type="InformationRequest" minOccurs="0" maxOccurs="1" />
     </xs:all>
     <xs:attribute name="uniqueIdentifier" type="xs:string" use="required" />
   </xs:complexType>
