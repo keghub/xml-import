@@ -155,7 +155,7 @@ Currently, you can specify whom we should forward a lead for the given course by
 This field is optional.
 
 #### Important
-Please don't use the external information request form ['<externalUrl/>'] feature prior to consultation with your account manager as the XML will not validate correctly.
+Please don't use the external information request form [`<externalUrl/>`] feature prior to consultation with your account manager as the XML will not validate correctly.
 
 
 ### Application
