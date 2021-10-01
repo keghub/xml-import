@@ -2,8 +2,8 @@
 The `<provider />` node is composed by four nodes:
 * `<locations />` that will contain all the provider's [locations](location.md)
 * `<courses />` that will contain all the provider's [courses](course.md)
-* `<contentFields />` that will contain all the text information regarding the provider
-* `<informationRequestSettings />` that will countain all the information regarding information-request-settings.
+* `<contentFields />` that will contain all the text information regarding the provider.
+* `<informationRequestSettings />` that will contain all the information regarding information-request-settings.
 
 [Here you can find the definition of the `Provider` type](../../schemas/3.0/provider.xsd) and [here you can find some samples](../../samples/3.0/provider-sample.xml).
 
