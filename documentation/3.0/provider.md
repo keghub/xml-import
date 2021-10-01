@@ -69,4 +69,4 @@ Currently, you can specify whom we should forward a lead for the courses by prov
 This field is optional.
 
 #### Important
-Please don't use the external information request form [`<externalUrl/>`] feature prior to consultation with your account manager as the XML will not validate correctly.
+Please don't use the external information request form [`<externalUrl/>`] feature prior to consultation with your account manager.
