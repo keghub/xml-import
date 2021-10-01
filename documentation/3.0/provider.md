@@ -1,8 +1,9 @@
 ## Provider
-The `<provider />` node is composed by three nodes:
+The `<provider />` node is composed by four nodes:
 * `<locations />` that will contain all the provider's [locations](location.md)
 * `<courses />` that will contain all the provider's [courses](course.md)
 * `<contentFields />` that will contain all the text information regarding the provider
+* `<informationRequestSettings />` that will countain all the information regarding information-request-settings.
 
 [Here you can find the definition of the `Provider` type](../../schemas/3.0/provider.xsd) and [here you can find some samples](../../samples/3.0/provider-sample.xml).
 
@@ -46,3 +47,26 @@ Here is an example of a custom field containing HTML text
 <br />Cras risus diam, placerat non, facilisis at, lacinia sed, neque.</p>]]>
 </field>
 ```
+
+### Information Request settings
+The `<informationRequestSettings />` node is an instance of the type [`InformationRequest`](../../schemas/3.0/information-request.xsd#L8-L35) and can be used to specify settings related to our lead system (_information request_).
+
+Currently, you can specify whom we should forward a lead for the courses by providing up to 5 email addresses, and specify a link to your external information request form.
+
+```xml
+<informationRequestSettings>
+  <emailReceivers>
+    <receiver email="test-1@foo.com" />
+    <receiver email="test-2@foo.com" />
+    <receiver email="test-3@foo.com" />
+  </emailReceivers>
+  <externalUrl>
+	http://foo.com/testForm
+  </externalUrl>
+</informationRequestSettings>
+```
+
+This field is optional.
+
+#### Important
+Please don't use the external information request form feature prior to consultation with your account manager as the XML will not validate correctly.

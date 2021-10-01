@@ -135,9 +135,9 @@ The `<duration />` node is an instance of the type [`CourseDuration`](../../sche
 This field is optional.
 
 ### Information Request settings
-The `<informationRequestSettings />` node is an instance of the type [`InformationRequest`](../../schemas/3.0/information-request.xsd#L8-L28) and can be used to specify settings related to our lead system (_information request_).
+The `<informationRequestSettings />` node is an instance of the type [`InformationRequest`](../../schemas/3.0/information-request.xsd#L8-L35) and can be used to specify settings related to our lead system (_information request_).
 
-Currently, you can only specify whom we should forward a lead  for the given course. This can be done by providing up to 5 email addresses.
+Currently, you can specify whom we should forward a lead for the given course by providing up to 5 email addresses, and specify a link to your external information request form.
 
 ```xml
 <informationRequestSettings>
@@ -146,8 +146,17 @@ Currently, you can only specify whom we should forward a lead  for the given cou
     <receiver email="test-2@foo.com" />
     <receiver email="test-3@foo.com" />
   </emailReceivers>
+  <externalUrl>
+	http://foo.com/testForm
+  </externalUrl>
 </informationRequestSettings>
 ```
+
+This field is optional.
+
+#### Important
+Please don't use the external information request form feature prior to consultation with your account manager as the XML will not validate correctly.
+
 
 ### Application
 The `<application />` node is an instance of the type [`Application`](../../schemas/3.0/course.xsd#L147-L157) and contains the link where visitors can apply for the course or program. 
