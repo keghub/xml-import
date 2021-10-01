@@ -137,7 +137,7 @@ This field is optional.
 ### Information Request settings
 The `<informationRequestSettings />` node is an instance of the type [`InformationRequest`](../../schemas/3.0/information-request.xsd#L8-L35) and can be used to specify settings related to our lead system (_information request_).
 
-Currently, you can specify whom we should forward a lead for the given course by providing up to 5 email addresses, and specify a link to your external information request form.
+Currently, you can specify whom we should forward a lead to for the given course by providing up to 5 email addresses, and specify a link to your external information request form.
 
 ```xml
 <informationRequestSettings>
