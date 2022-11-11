@@ -18,7 +18,7 @@
           <xs:attribute name="email" use="required">
             <xs:simpleType>
               <xs:restriction base="xs:string">
-                <xs:pattern value="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"/>
+                <xs:pattern value="^[a-zA-Z0-9_%+-]*[a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9][a-zA-Z0-9.-]*[a-zA-Z0-9]\.[a-zA-Z0-9][a-zA-Z0-9]+$"/>
               </xs:restriction>
             </xs:simpleType>
           </xs:attribute>
