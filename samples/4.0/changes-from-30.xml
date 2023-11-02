@@ -1,0 +1,59 @@
+<import xmlns="http://educations.com/XmlImport" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="4.0">
+  <provider uniqueIdentifier="asd">
+    <locations>
+      <!-- The place of the location is now an attribute of the location element -->
+      <location uniqueIdentifier="stockholm" name="EMG HQ" place="Stockholm, Sweden" />
+    </locations>
+    <courses>
+      <course uniqueIdentifier="course-1" name="First course" courseType="Course">
+        
+        <events>
+          <!-- The language is now mandatory -->
+          <!-- The pace is now an attribute of the event element -->
+          <event uniqueIdentifier="event-1" xsi:type="LocationEvent" locationUID="stockholm" deliveryMethod="Open class" language="English" pace="95">
+            <!-- The currency is now mandatory -->
+            <price price="123" currency="SEK" />
+          </event>
+        </events>
+        
+        <contentFields />
+        
+        <duration>
+          <!--  The user can either enter a text or the specific value -->
+          <text>
+            <![CDATA[This is the duration of the course.]]>
+          </text>
+        </duration>
+        
+        <!-- Courses also can have additional info -->
+        <additionalInfo>
+          <item key="something"><![CDATA[some randome data]]></item>
+        </additionalInfo>
+        
+        <!-- Courses also can have flags -->
+        <flags />
+      </course>
+      
+      <course uniqueIdentifier="course-2" name="First course" courseType="Course">
+        <events />
+        <contentFields />
+        <duration>
+          <!-- The user can either enter a text or the specific value -->
+          <!-- The unit is now mandatory -->
+          <specific unit="hours" value="20" />
+        </duration>
+      </course>
+
+    </courses>
+    <contentFields />
+
+    <!-- The IR settings can be specified for the whole provider. Courses settings will override this. -->
+    <informationRequestSettings>
+      <emailReceivers>
+        <receiver email="test-1@foo.com" />
+        <receiver email="test-2@foo.com" />
+        <receiver email="test-3@foo.com" />
+      </emailReceivers>
+    </informationRequestSettings>
+  </provider>
+</import>

@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://educations.com/XmlImport" elementFormDefault="qualified" 
+  xmlns="http://educations.com/XmlImport" 
+  xmlns:xi="http://educations.com/XmlImport" 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:include schemaLocation="xml-import.xsd" />
+  <xs:include schemaLocation="event.xsd" />
+  <xs:include schemaLocation="location.xsd" />
+  <xs:include schemaLocation="information-request.xsd" />
+
+  <xs:complexType name="Course">
+    <xs:all>
+
+      <xs:element name="contentFields" type="CourseTextPropertyList">
+        <xs:unique name="unique-course-contentFields">
+          <xs:selector xpath="xi:field" />
+          <xs:field xpath="@name" />
+        </xs:unique>
+      </xs:element>
+
+      <xs:element name="events">
+        <xs:complexType>
+          <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="event" type="Event" />
+          </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="unique-event-uniqueIdentifier">
+          <xs:selector xpath="xi:event" />
+          <xs:field xpath="@uniqueIdentifier" />
+        </xs:unique>
+        <xs:keyref name="pk-location" refer="key-location">
+          <xs:selector xpath="xi:event" />
+          <xs:field xpath="@locationUID" />
+        </xs:keyref>
+      </xs:element>
+
+      <xs:element name="keywords" type="KeywordList" minOccurs="0" />
+
+      <xs:element name="categories" type="CategoryList" minOccurs="0" />
+
+      <xs:element name="grantedCertificates" type="CertificateList" minOccurs="0" />
+
+      <xs:element name="link" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:anyURI">
+            <xs:maxLength value="1024" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="duration" type="CourseDuration" minOccurs="0" maxOccurs="1" />
+
+      <xs:element name="informationRequestSettings" type="InformationRequest" minOccurs="0" maxOccurs="1" />
+
+      <xs:element name="application" type="Application" minOccurs="0" maxOccurs="1" />
+
+      <xs:element name="credits" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+
+      <xs:element name="flags" type="FlagList" minOccurs="0" maxOccurs="1" />
+
+      <xs:element name="additionalInfo" type="AdditionalInfo" minOccurs="0" maxOccurs="1" />
+
+    </xs:all>
+
+    <xs:attribute name="name" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1"/>
+          <xs:maxLength value="128" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="uniqueIdentifier" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="256" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="courseType" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="128" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="CourseDuration">
+    <xs:choice>
+      <xs:element name="specific">
+        <xs:complexType>
+          <xs:attribute name="value" use="required" type="xs:decimal" />
+          <xs:attribute name="unit" use="required">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:enumeration value="hours" />
+                <xs:enumeration value="days" />
+                <xs:enumeration value="weeks" />
+                <xs:enumeration value="months" />
+                <xs:enumeration value="years" />
+                <xs:enumeration value="semesters" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="text">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="64" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="CategoryList">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="category">
+        <xs:complexType>
+          <xs:attribute name="name" use="required">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="64" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CertificateList">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="certificate">
+        <xs:complexType>
+          <xs:attribute name="name" use="required">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="128" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Application">
+    <xs:attribute name="url" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:anyURI">
+          <xs:maxLength value="1024" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="startDate" type="xs:date" use="optional" />
+    <xs:attribute name="endDate" type="xs:date" use="optional" />
+  </xs:complexType>
+
+</xs:schema>
