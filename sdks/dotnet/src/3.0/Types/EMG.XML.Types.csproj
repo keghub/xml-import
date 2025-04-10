@@ -13,7 +13,7 @@
     <PackageLicenseUrl>https://raw.githubusercontent.com/emgdev/xml-import/master/LICENSE</PackageLicenseUrl>
     <Description>An helper library to quickly XML feeds conformant to the EMG XML 3.0 schema</Description>
     <PackageTags>dotnet-core csharp dotnet dotnet-standard xml emg educations-media-group</PackageTags>
-    <PackageIconUrl>http://static.emg-services.net/masterpages/pics/logos/emg-icon-64.png</PackageIconUrl>
+    <PackageIconUrl>https://cdn-static.emg-services.net/masterpages/pics/logos/emg-icon-64.png</PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.3'">
